@@ -46,6 +46,11 @@ GO
 
 Two levels of filtering: term level and HDAP_NLP_OMHSP level.
 
-1) **Priority** - Need ability to track whether or not a term should be included for reporting.
-2) **May be needed** - Need ability to track whether or not an entry in HDAP_NLP_OMHSP should be included for reporting, based on associated TermID
+- [ ] **Priority** - Need ability to track whether or not a term should be included for reporting.
+- [ ] **May be needed** - Need ability to track whether or not an entry in HDAP_NLP_OMHSP should be included for reporting, based on associated TermID
+
+Questions:
+
+- [ ] What has been done?  Which areas?  Retrospective or prospective?
+- [ ] What are the priorities for the terms?
 
