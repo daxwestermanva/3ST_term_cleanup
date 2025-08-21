@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Micro]
+    AUTHORIZATION [uOMHSP_PERC];
+

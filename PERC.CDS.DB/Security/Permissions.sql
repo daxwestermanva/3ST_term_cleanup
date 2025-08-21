@@ -1,0 +1,3 @@
+﻿DENY ALTER
+    ON SCHEMA::[dbo] TO [uOMHSP_PERC];
+

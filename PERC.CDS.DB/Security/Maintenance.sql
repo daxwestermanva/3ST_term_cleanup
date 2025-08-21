@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Maintenance]
+    AUTHORIZATION [uOMHSP_PERC];
+

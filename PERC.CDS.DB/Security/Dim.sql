@@ -1,0 +1,17 @@
+﻿CREATE SCHEMA [Dim]
+    AUTHORIZATION [uOMHSP_PERC];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

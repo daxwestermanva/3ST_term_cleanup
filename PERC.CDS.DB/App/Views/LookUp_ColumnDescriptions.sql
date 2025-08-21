@@ -1,0 +1,1 @@
+﻿create VIEW [App].[LookUp_ColumnDescriptions] as select * from [lookup].ColumnDescriptions

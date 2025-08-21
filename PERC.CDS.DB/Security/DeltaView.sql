@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [DeltaView]
+    AUTHORIZATION [uOMHSP_PERC];
+

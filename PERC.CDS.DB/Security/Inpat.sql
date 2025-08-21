@@ -1,0 +1,5 @@
+﻿CREATE SCHEMA [Inpat]
+    AUTHORIZATION [uOMHSP_PERC];
+
+
+

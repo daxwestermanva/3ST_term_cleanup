@@ -1,0 +1,9 @@
+﻿CREATE SCHEMA [ETL]
+    AUTHORIZATION [uOMHSP_PERC];
+
+
+
+
+
+
+

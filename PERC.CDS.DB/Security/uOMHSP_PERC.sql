@@ -1,0 +1,2 @@
+﻿CREATE USER [uOMHSP_PERC] FOR LOGIN [vhamaster\OMHSP_PERC];
+

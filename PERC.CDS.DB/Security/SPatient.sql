@@ -1,0 +1,5 @@
+﻿CREATE SCHEMA [SPatient]
+    AUTHORIZATION [uOMHSP_PERC];
+
+
+

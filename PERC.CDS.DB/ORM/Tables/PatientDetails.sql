@@ -1,0 +1,112 @@
+CREATE TABLE [ORM].[PatientDetails] (
+    [MVIPersonSID]                INT              NULL,
+    [Locations]                   NVARCHAR (30)    NULL,
+    [LocationName]                NVARCHAR (255)   NULL,
+    [LocationsColor]              NVARCHAR (255)   NULL,
+    [OUD]                         INT              NULL,
+    [OpioidForPain_Rx]            SMALLINT         NULL,
+    [SUDdx_poss]                  INT              NULL,
+    [Hospice]                     INT              NULL,
+    [RiskCategory]                INT              NOT NULL,
+    [RiskCategorylabel]           VARCHAR (125)    NOT NULL,
+    [RiskAnyCategory]             INT              NOT NULL,
+    [RiskAnyCategorylabel]        VARCHAR (125)    NOT NULL,
+    [RiskScore]                   DECIMAL (38, 15) NULL,
+    [RiskScoreAny]                DECIMAL (38, 15) NULL,
+    [RiskScoreAnyOpioidSedImpact] DECIMAL (38, 6)  NULL,
+    [RiskScoreOpioidSedImpact]    DECIMAL (38, 6)  NULL,
+    [RM_ActiveTherapies_Key]      INT              NULL,
+    [RM_ActiveTherapies_Date]     DATETIME2 (0)    NULL,
+    [RM_ChiropracticCare_Key]     INT              NULL,
+    [RM_ChiropracticCare_Date]    DATETIME2 (0)    NULL,
+    [RM_OccupationalTherapy_Key]  INT              NULL,
+    [RM_OccupationalTherapy_Date] DATETIME2 (0)    NULL,
+    [RM_OtherTherapy_Key]         INT              NULL,
+    [RM_OtherTherapy_Date]        DATETIME2 (0)    NULL,
+    [RM_PhysicalTherapy_Key]      INT              NULL,
+    [RM_PhysicalTherapy_Date]     DATETIME2 (0)    NULL,
+    [RM_SpecialtyTherapy_Key]     INT              NULL,
+    [RM_SpecialtyTherapy_Date]    DATETIME2 (0)    NULL,
+    [RM_PainClinic_Key]           INT              NULL,
+    [RM_PainClinic_Date]          DATETIME2 (0)    NULL,
+    [CAM_Key]                     INT              NULL,
+    [CAM_Date]                    DATETIME2 (0)    NULL,
+    [RiosordScore]                SMALLINT         NULL,
+    [RiosordRiskClass]            INT              NULL,
+    [RiskMitScore]                INT              NULL,
+    [MaxMitigations]              INT              NULL,
+    [PatientRecordFlag_Suicide]   INT              NOT NULL,
+    [REACH_01]                    BIT              NULL,
+    [REACH_Past]                  BIT              NULL,
+    [MitigationID]                SMALLINT         NOT NULL,
+    [RiskMitigation]              VARCHAR (100)    NULL,
+    [DetailsText]                 VARCHAR (60)     NULL,
+    [DetailsDate]                 DATETIME2 (7)    NULL,
+    [Checked]                     SMALLINT         NULL,
+    [Red]                         BIT              NULL,
+    [MitigationIDRx]              FLOAT (53)       NULL,
+    [PrintNameRx]                 VARCHAR (100)    NULL,
+    [CheckedRx]                   INT              NULL,
+    [RedRx]                       INT              NULL,
+    [MetricInclusion]             BIT              NULL,
+    [DxId]                        BIGINT           NOT NULL,
+    [Diagnosis]                   VARCHAR (1000)   NULL,
+    [ColumnName]                  NVARCHAR (128)   NULL,
+    [Category]                    VARCHAR (100)    NULL,
+    [MedID]                       BIGINT           NOT NULL,
+    [DrugNameWithoutDose]         VARCHAR (150)    NULL,
+    [PrescriberName]              VARCHAR (150)    NULL,
+    [MedType]                     VARCHAR (34)     NULL,
+    [CHOICE]                      INT              NULL,
+    [MedLocation]                 NVARCHAR (10)    NULL,
+    [MedLocationName]             NVARCHAR (255)   NULL,
+    [MedLocationColor]            NVARCHAR (255)   NULL,
+    [MonthsinTreatment]           FLOAT (53)       NULL,
+    [GroupID]                     INT              NULL,
+    [GroupType]                   VARCHAR (25)     NULL,
+    [ProviderName]                VARCHAR (100)    NULL,
+    [ProviderSID]                 INT              NULL,
+    [ProviderLocation]            NVARCHAR (30)    NULL,
+    [ProviderLocationName]        NVARCHAR (255)   NULL,
+    [ProviderLocationColor]       NVARCHAR (255)   NULL,
+    [AppointmentID]               BIGINT           NOT NULL,
+    [AppointmentType]             VARCHAR (24)     NULL,
+    [AppointmentStop]             VARCHAR (100)    NULL,
+    [AppointmentDateTime]         DATETIME2 (0)    NULL,
+    [AppointmentLocation]         VARCHAR (5)      NULL,
+    [AppointmentLocationName]     NVARCHAR (255)   NULL,
+    [AppointmentLocationColor]    NVARCHAR (255)   NULL,
+    [VisitStop]                   VARCHAR (100)    NULL,
+    [VisitDateTime]               DATETIME2 (0)    NULL,
+    [VisitLocation]               VARCHAR (5)      NULL,
+    [VisitLocationName]           NVARCHAR (255)   NULL,
+    [VisitLocationColor]          NVARCHAR (255)   NULL,
+    [ReceivingCommunityCare]      INT              NULL,
+    [ActiveMOUD_Patient]          INT              NOT NULL,
+    [NonVA_Meds]                  INT              NOT NULL,
+    [ODPastYear]                  BIT              NULL,
+    [ODdate]                      DATE             NULL,
+    [ChronicOpioid]               INT              NULL,
+    [Details]                     VARCHAR (8000)   NULL,
+    [NonVACannabis]               VARCHAR (100)    NULL,
+    [XylazineExposure]            VARCHAR (17)     NULL,
+    [Concept]                     VARCHAR (25)     NULL
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+CREATE CLUSTERED COLUMNSTORE INDEX [CCIX_PatientDetails]
+    ON [ORM].[PatientDetails];
+

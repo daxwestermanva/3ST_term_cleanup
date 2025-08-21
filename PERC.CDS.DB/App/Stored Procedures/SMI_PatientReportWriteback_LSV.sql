@@ -1,0 +1,131 @@
+﻿
+-- =============================================
+-- Author:		 Claire Hannemann
+-- Create date:  8/20/2021
+-- Description:	 SMI report writeback
+-- =============================================
+CREATE PROCEDURE [App].[SMI_PatientReportWriteback_LSV]
+	 
+   
+	@MVIPersonSID int,
+	@User varchar(100)
+  
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+  
+
+
+SELECT a.[MVIPersonSID]
+      ,a.[PatientICN]
+      ,[LastName]
+      ,[FirstName]
+      ,[PatientName]
+      ,[LastFour]
+      ,[Age]
+      ,[Gender]
+      ,[Veteran]
+      ,[PossibleTestPatient]
+      ,[TestPatient]
+      ,[PhoneNumber]
+      ,[StreetAddress1]
+      ,[StreetAddress2]
+      ,[City]
+      ,[State]
+      ,[Zip]
+      ,[PercentServiceConnect]
+      ,[Homestation_ChecklistID]
+      ,a.[Sta3n]
+      ,[Schiz_dx]
+      ,[Bipolar_dx]
+      ,[OtherPsychoses_dx]
+      ,[PCFutureAppt_DateTime]
+      ,[PCFutureAppt_PrimaryStopCode]
+      ,[PCFutureAppt_PrimaryStopCodeName]
+      ,[PCFutureAppt_ChecklistID]
+      ,[PCFutureAppt_Facility]
+      ,[MHFutureAppt_DateTime]
+      ,[MHFutureAppt_PrimaryStopCode]
+      ,[MHFutureAppt_PrimaryStopCodeName]
+	  ,[MHFutureAppt_SecondaryStopCode]
+      ,[MHFutureAppt_SecondaryStopCodeName]
+      ,[MHFutureAppt_ChecklistID]
+      ,[MHFutureAppt_Facility]
+	  ,[MHFutureAppt_SecondaryOnly]
+      ,[OtherFutureAppt_DateTime]
+      ,[OtherFutureAppt_PrimaryStopCode]
+      ,[OtherFutureAppt_PrimaryStopCodeName]
+      ,[OtherFutureAppt_ChecklistID]
+      ,[OtherFutureAppt_Facility]
+      ,[AnyFutureAppt_DateTime]
+      ,[AnyFutureAppt_PrimaryStopCode]
+      ,[AnyFutureAppt_PrimaryStopCodeName]
+      ,[AnyFutureAppt_ChecklistID]
+      ,[AnyFutureAppt_Facility]
+      ,[PCRecentEnc_VisitDate]
+      ,[PCRecentEnc_PrimaryStopCode]
+      ,[PCRecentEnc_PrimaryStopCodeName]
+      ,[PCRecentEnc_ChecklistID]
+      ,[PCRecentEnc_Facility]
+      ,[MHRecentEnc_VisitDate]
+      ,[MHRecentEnc_PrimaryStopCode]
+      ,[MHRecentEnc_PrimaryStopCodeName]
+	  ,[MHRecentEnc_SecondaryStopCode]
+      ,[MHRecentEnc_SecondaryStopCodeName]
+      ,[MHRecentEnc_ChecklistID]
+      ,[MHRecentEnc_Facility]
+	  ,[MHRecentEnc_SecondaryOnly]
+      ,[EDRecentEnc_VisitDate]
+      ,[EDRecentEnc_PrimaryStopCode]
+      ,[EDRecentEnc_PrimaryStopCodeName]
+      ,[EDRecentEnc_ChecklistID]
+      ,[EDRecentEnc_Facility]
+      ,[OtherRecentEnc_VisitDate]
+      ,[OtherRecentEnc_PrimaryStopCode]
+      ,[OtherRecentEnc_PrimaryStopCodeName]
+      ,[OtherRecentEnc_ChecklistID]
+      ,[OtherRecentEnc_Facility]
+      ,[AnyRecentEnc_VisitDate]
+      ,[AnyRecentEnc_PrimaryStopCode]
+      ,[AnyRecentEnc_PrimaryStopCodeName]
+      ,[AnyRecentEnc_ChecklistID]
+      ,[AnyRecentEnc_Facility]
+      ,[PC_Engagement]
+      ,[MH_Engagement]
+      ,[Other_Engagement]
+      ,[IPAdmit_Date]
+      ,[IPDischarge_Date]
+      ,[CurrentlyAdmitted]
+      ,[IPDischarge_ChecklistID]
+      ,[IPDischarge_Facility]
+      ,[IPDischarge_Bedsection]
+      ,[ED_counts_pastyear]
+      ,[IP_MH_counts_pastyear]
+      ,[PCP_Name]
+      ,[PCP_ChecklistID]
+      ,[PCP_Facility]
+      ,[MHTC_Name]
+      ,[MHTC_ChecklistID]
+      ,[MHTC_Facility]
+      ,[HRF_ChecklistID]
+      ,[HRF_Facility]
+      ,[HRF_Date]
+      ,[HRF_Status]
+      ,[RxTransitions_Antidepressant]
+      ,[RxTransitions_Antipsychotic]
+      ,[RxTransitions_Benzodiazepine]
+      ,[RxTransitions_MoodStabilizer]
+      ,[RxTransitions_OpioidAgonist]
+      ,[RxTransitions_OpioidForPain]
+      ,[RxTransitions_OtherControlledSub]
+      ,[RxTransitions_Sedative_zdrug]
+      ,[RxTransitions_Stimulant]
+      ,[RxTransitions_MinDaysForSorting] 
+FROM [SMI].[PatientReport]  AS a WITH (NOLOCK)
+INNER JOIN (SELECT sta3n FROM [App].[access] (@User)) AS Access ON a.sta3n = Access.sta3n
+WHERE MVIPersonSID = @MVIPersonSID
+
+
+
+END

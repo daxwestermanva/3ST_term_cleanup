@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Basecamp]
+    AUTHORIZATION [uOMHSP_PERC];
+

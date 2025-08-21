@@ -1,0 +1,5 @@
+﻿CREATE SCHEMA [Vital]
+    AUTHORIZATION [uOMHSP_PERC];
+
+
+

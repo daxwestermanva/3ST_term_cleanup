@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [DataDictionary]
+    AUTHORIZATION [uOMHSP_PERC];
+

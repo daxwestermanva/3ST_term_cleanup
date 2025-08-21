@@ -1,0 +1,1403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>PERC.CDS.DB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{3e2a9e88-c6ca-491c-b819-e5eb7b0a2bae}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>PERC.CDS.DB</RootNamespace>
+    <AssemblyName>PERC.CDS.DB</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>DefFG</DefaultFilegroup>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <AutoCreateStatistics>False</AutoCreateStatistics>
+    <AutoUpdateStatistics>False</AutoUpdateStatistics>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SqlCodeAnalysisRules>-Microsoft.Rules.Data.SR0001;-Microsoft.Rules.Data.SR0004;-Microsoft.Rules.Data.SR0005;-Microsoft.Rules.Data.SR0006;-Microsoft.Rules.Data.SR0007;-Microsoft.Rules.Data.SR0008;-Microsoft.Rules.Data.SR0009;-Microsoft.Rules.Data.SR0010;-Microsoft.Rules.Data.SR0011;-Microsoft.Rules.Data.SR0012;-Microsoft.Rules.Data.SR0013;-Microsoft.Rules.Data.SR0014;-Microsoft.Rules.Data.SR0015;-Microsoft.Rules.Data.SR0016</SqlCodeAnalysisRules>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="REACH\" />
+    <Folder Include="REACH\Tables\" />
+    <Folder Include="PDSI\" />
+    <Folder Include="PDSI\Tables\" />
+    <Folder Include="LookUp\" />
+    <Folder Include="LookUp\Tables\" />
+    <Folder Include="App\" />
+    <Folder Include="App\Tables\" />
+    <Folder Include="PRF_HRS\" />
+    <Folder Include="PRF_HRS\Tables\" />
+    <Folder Include="ORM\" />
+    <Folder Include="ORM\Tables\" />
+    <Folder Include="Present\" />
+    <Folder Include="Present\Tables\" />
+    <Folder Include="Inpatient\" />
+    <Folder Include="SPPRITE\" />
+    <Folder Include="SPPRITE\Tables\" />
+    <Folder Include="PDE_Daily\" />
+    <Folder Include="PDE_Daily\Tables\" />
+    <Folder Include="Maintenance\" />
+    <Folder Include="Maintenance\Tables\" />
+    <Folder Include="Dflt\" />
+    <Folder Include="Dflt\Tables\" />
+    <Folder Include="MPR\" />
+    <Folder Include="MPR\Tables\" />
+    <Folder Include="CDS\" />
+    <Folder Include="CDS\Tables\" />
+    <Folder Include="DataRequest\" />
+    <Folder Include="DataRequest\Tables\" />
+    <Folder Include="EBP\" />
+    <Folder Include="EBP\Tables\" />
+    <Folder Include="CRISTAL\" />
+    <Folder Include="CRISTAL\Tables\" />
+    <Folder Include="Dim\" />
+    <Folder Include="Dim\Tables\" />
+    <Folder Include="DOEx\" />
+    <Folder Include="DOEx\Tables\" />
+    <Folder Include="FieldDataEntry\" />
+    <Folder Include="FieldDataEntry\Tables\" />
+    <Folder Include="Present\Views\" />
+    <Folder Include="App\Views\" />
+    <Folder Include="DOEx\Views\" />
+    <Folder Include="DataRequest\Views\" />
+    <Folder Include="Maintenance\Views\" />
+    <Folder Include="LookUp\Views\" />
+    <Folder Include="Storage\" />
+    <Folder Include="Security\" />
+    <Folder Include="Dflt\Functions\" />
+    <Folder Include="Maintenance\Functions\" />
+    <Folder Include="App\Functions\" />
+    <Folder Include="Code\" />
+    <Folder Include="Code\Stored Procedures\" />
+    <Folder Include="App\Stored Procedures\" />
+    <Folder Include="Maintenance\Stored Procedures\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Dflt\Stored Procedures\" />
+    <Folder Include="Tool\" />
+    <Folder Include="Tool\Stored Procedures\" />
+    <Folder Include="Database Triggers\" />
+    <Folder Include="App\Synonyms\" />
+    <Folder Include="REACH\Views\" />
+    <Folder Include="Inpatient\Views" />
+    <Folder Include="Log\" />
+    <Folder Include="Log\Tables\" />
+    <Folder Include="Log\Stored Procedures\" />
+    <Folder Include="Stage\" />
+    <Folder Include="Stage\Tables\" />
+    <Folder Include="RiskScore\" />
+    <Folder Include="RiskScore\Tables\" />
+    <Folder Include="RiskScore\Functions\" />
+    <Folder Include="OMHSP_Standard\" />
+    <Folder Include="OMHSP_Standard\Tables\" />
+    <Folder Include="Config\" />
+    <Folder Include="Config\Tables\" />
+    <Folder Include="Config\Stored Procedures\" />
+    <Folder Include="CHOICE\" />
+    <Folder Include="CHOICE\Tables\" />
+    <Folder Include="REACH\Stored Procedures\" />
+    <Folder Include="Common\" />
+    <Folder Include="Common\Views\" />
+    <Folder Include="RiskScore\Views\" />
+    <Folder Include="COVID\" />
+    <Folder Include="COVID\Tables\" />
+    <Folder Include="SPPRITE\Views\" />
+    <Folder Include="Common\Tables\" />
+    <Folder Include="PRF_HRS\Views\" />
+    <Folder Include="COVID\Views\" />
+    <Folder Include="Config\Views\" />
+    <Folder Include="Load\" />
+    <Folder Include="Load\Tables\" />
+    <Folder Include="Alex\" />
+    <Folder Include="Alex\Tables\" />
+    <Folder Include="SUD\" />
+    <Folder Include="SUD\Tables\" />
+    <Folder Include="Snapshots" />
+    <Folder Include="SMI\" />
+    <Folder Include="SMI\Tables\" />
+    <Folder Include="VBA\" />
+    <Folder Include="VBA\Tables\" />
+    <Folder Include="Pharm" />
+    <Folder Include="Pharm\Tables" />
+    <Folder Include="ORM\Views\" />
+    <Folder Include="BHIP\" />
+    <Folder Include="BHIP\Tables\" />
+    <Folder Include="Synonyms" />
+    <Folder Include="SDH\" />
+    <Folder Include="SDH\Tables\" />
+    <Folder Include="COMPACT\" />
+    <Folder Include="COMPACT\Tables\" />
+    <Folder Include="SBOSR\" />
+    <Folder Include="SBOSR\Tables\" />
+    <Folder Include="PRF\" />
+    <Folder Include="PRF\Tables\" />
+    <Folder Include="Meta\" />
+    <Folder Include="Meta\Tables\" />
+    <Folder Include="OracleH_QI\" />
+    <Folder Include="OracleH_QI\Tables\" />
+    <Folder Include="VCL\" />
+    <Folder Include="VCL\Tables\" />
+    <Folder Include="DOEx\Synonyms\" />
+    <Folder Include="DeltaView\" />
+    <Folder Include="DeltaView\Tables\" />
+    <Folder Include="DeltaView\Functions\" />
+    <Folder Include="DeltaView\Stored Procedures\" />
+    <Folder Include="SUD\Views\" />
+    <Folder Include="OMHSP_Standard\Views\" />
+    <Folder Include="CaringLetters\" />
+    <Folder Include="CaringLetters\Tables\" />
+    <Folder Include="PBIReports\" />
+    <Folder Include="PBIReports\Tables\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="App\Tables\Log_MasterPatientAudit.sql" />
+    <Build Include="LookUp\Tables\ICD9.sql" />
+    <Build Include="LookUp\Tables\ColumnDescriptions.sql" />
+    <Build Include="LookUp\Tables\ReportingPeriod.sql" />
+    <Build Include="LookUp\Tables\ChecklistID.sql" />
+    <Build Include="LookUp\Tables\ChecklistidCumulative.sql" />
+    <Build Include="LookUp\Tables\Sta6a.sql" />
+    <Build Include="LookUp\Tables\SurveyColor.sql" />
+    <Build Include="PDSI\Tables\Definitions.sql" />
+    <Build Include="LookUp\Tables\SpatialData.sql" />
+    <Build Include="LookUp\Tables\RiskFactor.sql" />
+    <Build Include="ORM\Tables\UDS.sql" />
+    <Build Include="PDSI\Tables\Writeback.sql" />
+    <Build Include="ORM\Tables\Visit.sql" />
+    <Build Include="LookUp\Tables\ICD9Proc.sql" />
+    <Build Include="PDSI\Tables\mhis_measureid.sql" />
+    <Build Include="ORM\Tables\Rehab.sql" />
+    <Build Include="PDSI\Tables\GroupType.sql" />
+    <Build Include="LookUp\Tables\MaritalStatus.sql" />
+    <Build Include="LookUp\Tables\StationColors.sql" />
+    <Build Include="PDSI\Tables\OUD_Details.sql" />
+    <Build Include="ORM\Tables\PatientReport.sql" />
+    <Build Include="PDSI\Tables\AUD_Details.sql" />
+    <Build Include="App\Tables\PDSI_POCs.sql" />
+    <Build Include="ORM\Tables\PatientDetails.sql" />
+    <Build Include="PRF_HRS\Tables\OutpatDetail.sql" />
+    <Build Include="PDE_Daily\Tables\InpatientRecs.sql" />
+    <Build Include="PDE_Daily\Tables\PDE_FollowUpMHVisits.sql" />
+    <Build Include="Present\Tables\MHActiveStaff.sql" />
+    <Build Include="PDE_Daily\Tables\PDE_PatientLevel.sql" />
+    <Build Include="Maintenance\Tables\StoredProcedureTableDetails.sql" />
+    <Build Include="Present\Tables\Providers.sql" />
+    <Build Include="PDE_Daily\Tables\RecentAppts.sql" />
+    <Build Include="Present\Tables\CrosswalkSta6a_checklistID.sql" />
+    <Build Include="Maintenance\Tables\CurrentReports.sql" />
+    <Build Include="Maintenance\Tables\Jobs.sql" />
+    <Build Include="Present\Tables\GroupAssignments.sql" />
+    <Build Include="Maintenance\Tables\StoredProcedureBackUp.sql" />
+    <Build Include="PRF_HRS\Tables\LookUp_NoteTitles.sql" />
+    <Build Include="Maintenance\Tables\TableDependency.sql" />
+    <Build Include="REACH\Tables\PatientRisks.sql" />
+    <Build Include="REACH\Tables\PatientReport.sql" />
+    <Build Include="EBP\Tables\QuarterlySummary.sql" />
+    <Build Include="REACH\Tables\ReachRunResults.sql" />
+    <Build Include="App\Tables\Admin_DefaultParameters.sql" />
+    <Build Include="ORM\Tables\MeasureDetails.sql" />
+    <Build Include="REACH\Tables\WritebackHistoric.sql" />
+    <Build Include="App\Tables\ALLMHIS_Trends.sql" />
+    <Build Include="Dim\Tables\GroupType.sql" />
+    <Build Include="ORM\Tables\MetricTable.sql" />
+    <Build Include="ORM\Tables\Evaluation_RiskCategory.sql" />
+    <Build Include="App\Tables\EBP_ReportingPeriodID.sql" />
+    <Build Include="REACH\Tables\RiskFactorCurrent.sql" />
+    <Build Include="EBP\Tables\Quarterly.sql" />
+    <Build Include="ORM\Tables\RiskMitigation.sql" />
+    <Build Include="EBP\Tables\FacilityMonthly.sql" />
+    <Build Include="EBP\Tables\DashboardBaseTableSummary.sql" />
+    <Build Include="ORM\Tables\MetricTable_Trends.sql" />
+    <Build Include="EBP\Tables\Clinician.sql" />
+    <Build Include="ORM\Tables\Model_Overdose_SAS.sql" />
+    <Build Include="App\Tables\Log_ContainerList.sql" />
+    <Build Include="ORM\Tables\Model_Overdose_Random_SAS.sql" />
+    <Build Include="App\Tables\Log_ExecutionErrorLog.sql" />
+    <Build Include="PDSI\Tables\AUD_OUD_Active.sql" />
+    <Build Include="REACH\Tables\Definitions.sql" />
+    <Build Include="App\Tables\Log_ExecutionLog.sql" />
+    <Build Include="LookUp\Tables\StandardRace.sql" />
+    <Build Include="LookUp\Tables\RaceTranslationTable.sql" />
+    <Build Include="App\Tables\Log_ExecutionLogArchive.sql" />
+    <Build Include="REACH\Tables\Writeback.sql" />
+    <Build Include="App\Tables\Log_ExecutionProcedureLog.sql" />
+    <Build Include="PDSI\Tables\mhis_all_pecs_data.sql" />
+    <Build Include="PDSI\Tables\ALLMHISChecklistid.sql" />
+    <Build Include="REACH\Tables\RiskFactors.sql" />
+    <Build Include="ORM\Tables\Model_AnyEvent_SAS.sql" />
+    <Build Include="App\Tables\Log_ExecutionTaskLog.sql" />
+    <Build Include="App\Tables\ALLMHISChecklistid_Trends.sql" />
+    <Build Include="App\Tables\Log_ExecutionVariableLog.sql" />
+    <Build Include="ORM\Tables\Model_AnyEvent_Random_SAS.sql" />
+    <Build Include="Present\Views\Provider_BHIP.sql" />
+    <Build Include="App\Views\Log_vwExecutionVariableLog.sql" />
+    <Build Include="Present\Views\Provider_BHIP_ICN.sql" />
+    <Build Include="App\Views\LookUp_ColumnDescriptions.sql" />
+    <Build Include="Present\Views\Provider_MHTC.sql" />
+    <Build Include="Present\Views\Provider_MHTC_ICN.sql" />
+    <Build Include="Present\Views\Provider_PACT.sql" />
+    <Build Include="DataRequest\Views\ActiveLithiumPatientsLabs.sql" />
+    <Build Include="Maintenance\Views\TableDetails.sql" />
+    <Build Include="Present\Views\Provider_PACT_ICN.sql" />
+    <Build Include="Present\Views\Provider_PCP.sql" />
+    <Build Include="Present\Views\Provider_PCP_ICN.sql" />
+    <Build Include="App\Views\LookUp_StopCode.sql" />
+    <Build Include="LookUp\Views\DivisionFacility.sql" />
+    <Build Include="Present\Views\GroupAssignments_STORM.sql" />
+    <Build Include="App\Views\Log_vwExecutionTaskLog.sql" />
+    <Build Include="Storage\DefFG.sql" />
+    <Build Include="Security\uOMHSP_PERC.sql" />
+    <Build Include="Security\uCDW_AllDB_Reader.sql" />
+    <Build Include="Security\uOMHSP_PERC_App.sql" />
+    <Build Include="Security\uOMHSP_Partners.sql" />
+    <Build Include="Dflt\Functions\ProperCase.sql" />
+    <Build Include="Maintenance\Functions\GetFY_Start.sql" />
+    <Build Include="App\Functions\Log_fn_GetMaxVariableValue.sql" />
+    <Build Include="App\Functions\Log_fn_GetPrimaryExecutionLogId.sql" />
+    <Build Include="Dflt\Functions\Begin_dt.sql" />
+    <Build Include="App\Functions\Access.sql" />
+    <Build Include="App\Functions\fn_PRF_HRS_ActivePeriod.sql" />
+    <Build Include="App\Functions\get_columns.sql" />
+    <Build Include="Code\Stored Procedures\Present_GroupAssignments.sql" />
+    <Build Include="App\Stored Procedures\PDSI_GroupType.sql" />
+    <Build Include="App\Stored Procedures\Pharm_LithiumPatientCohort_LSV.sql" />
+    <Build Include="App\Stored Procedures\ORM_Definitions_RiskMitigation.sql" />
+    <Build Include="App\Stored Procedures\Admin_PatientIdentifier_LSV.sql" />
+    <Build Include="App\Stored Procedures\ORM_Definitions_RiskMitigationsList.sql" />
+    <Build Include="Code\Stored Procedures\PDE_RecentAppts.sql" />
+    <Build Include="App\Stored Procedures\PDSI_MeasureDefinitions.sql" />
+    <Build Include="Code\Stored Procedures\Present_NonVAMed.sql" />
+    <Build Include="App\Stored Procedures\p_PDSI_MeasureDetails.sql" />
+    <Build Include="Code\Stored Procedures\PRF_HRS_ActiveAndHistory.sql" />
+    <Build Include="App\Stored Procedures\PDSI_PatientQuickView_LSV.sql" />
+    <Build Include="Code\Stored Procedures\Reach_PatientReport.sql" />
+    <Build Include="Code\Stored Procedures\Pharm_Lithium.sql" />
+    <Build Include="App\Stored Procedures\ORM_OpioidHistory.sql" />
+    <Build Include="Code\Stored Procedures\ORM_MetricTable_Trends.sql" />
+    <Build Include="Code\Stored Procedures\MHIS_Merge.sql" />
+    <Build Include="App\Stored Procedures\PDSI_PatientReport_LSV.sql" />
+    <Build Include="Code\Stored Procedures\ORM_PatientDetails.sql" />
+    <Build Include="App\Stored Procedures\Log_uspHandleOnPreExecuteEvent.sql" />
+    <Build Include="Code\Stored Procedures\ORM_PatientReport.sql" />
+    <Build Include="App\Stored Procedures\CrosswalkStopCode.sql" />
+    <Build Include="App\Stored Procedures\Log_uspHandleOnVariableValueChanged.sql" />
+    <Build Include="Code\Stored Procedures\ORM_Rehab.sql" />
+    <Build Include="Code\Stored Procedures\ORM_RiskMitigation.sql" />
+    <Build Include="App\Stored Procedures\Definitions_Diagnosis.sql" />
+    <Build Include="App\Stored Procedures\Log_uspSetContainerListOnPreExecute.sql" />
+    <Build Include="App\Stored Procedures\Definitions_ICD.sql" />
+    <Build Include="App\Stored Procedures\MBC_Appointments_LSV.sql" />
+    <Build Include="Code\Stored Procedures\ORM_UDS.sql" />
+    <Build Include="dbo\Stored Procedures\SetDDLTriggerStatus.sql" />
+    <Build Include="App\Stored Procedures\Definitions_NationalDrug.sql" />
+    <Build Include="App\Stored Procedures\MBC_Diagnosis_LSV.sql" />
+    <Build Include="App\Stored Procedures\PDSI_Station.sql" />
+    <Build Include="Code\Stored Procedures\ORM_Visits.sql" />
+    <Build Include="App\Stored Procedures\Definitions_StopCodes.sql" />
+    <Build Include="Code\Stored Procedures\Pharm_ClozapineMonitoring.sql" />
+    <Build Include="App\Stored Procedures\PDSI_Writeback.sql" />
+    <Build Include="App\Stored Procedures\MBC_Medications_LSV.sql" />
+    <Build Include="App\Stored Procedures\Disclaimer.sql" />
+    <Build Include="App\Stored Procedures\EBP_Clinician.sql" />
+    <Build Include="Code\Stored Procedures\PDSI_OUD_AUD_Active.sql" />
+    <Build Include="App\Stored Procedures\EBP_ClinicianDetail.sql" />
+    <Build Include="App\Stored Procedures\MBC_PatientRecordFlag_LSV.sql" />
+    <Build Include="App\Stored Procedures\pPDSI_MetricGroupings.sql" />
+    <Build Include="App\Stored Procedures\MBC_Providers_LSV.sql" />
+    <Build Include="App\Stored Procedures\EBP_MonthlySummary.sql" />
+    <Build Include="Code\Stored Procedures\Test_OutboxView_ETLconnection.sql" />
+    <Build Include="App\Stored Procedures\MBC_Reach_LSV.sql" />
+    <Build Include="App\Stored Procedures\MBC_ReachNationalTiers_LSV.sql" />
+    <Build Include="App\Stored Procedures\MBC_Storm_LSV.sql" />
+    <Build Include="App\Stored Procedures\MBC_STORM_Mitigation_LSV.sql" />
+    <Build Include="App\Stored Procedures\UserActivity.sql" />
+    <Build Include="App\Stored Procedures\MBC_StormHypo_LSV.sql" />
+    <Build Include="App\Stored Procedures\MBC_StormRehab_LSV.sql" />
+    <Build Include="Code\Stored Procedures\LookUp_ChecklistID.sql" />
+    <Build Include="App\Stored Procedures\EBP_QuarterlySummary.sql" />
+    <Build Include="App\Stored Procedures\Reach_Definitions.sql" />
+    <Build Include="App\Stored Procedures\Reach_FacilityMasterList_LSV.sql" />
+    <Build Include="Dflt\Stored Procedures\TFSTest.sql" />
+    <Build Include="App\Stored Procedures\Reach_PatientDetails_LSV.sql" />
+    <Build Include="App\Stored Procedures\Log_uspDeleteHistoricalLogEvent.sql" />
+    <Build Include="App\Stored Procedures\Reach_PatientQuestions.sql" />
+    <Build Include="App\Stored Procedures\ORM_Definitions_ClinicalDetail.sql" />
+    <Build Include="App\Stored Procedures\Log_uspGetCurrentPackageFlag.sql" />
+    <Build Include="App\Stored Procedures\p_HighRisk_Provider.sql" />
+    <Build Include="App\Stored Procedures\Reach_PatientRisks_LSV.sql" />
+    <Build Include="App\Stored Procedures\Log_uspHandleOnBeginEvent.sql" />
+    <Build Include="App\Stored Procedures\Reach_Summary.sql" />
+    <Build Include="Maintenance\Stored Procedures\CreateBackUps_Weekly.sql" />
+    <Build Include="App\Stored Procedures\Log_uspHandleOnEndEvent.sql" />
+    <Build Include="App\Stored Procedures\ORM_PatientQuickView_LSV.sql" />
+    <Build Include="Maintenance\Stored Procedures\CreateBackUps_Daily.sql" />
+    <Build Include="App\Stored Procedures\Reach_SummaryPatientMovement.sql" />
+    <Build Include="App\Stored Procedures\ORM_PatientReport_LSV.sql" />
+    <Build Include="App\Stored Procedures\Log_uspHandleOnErrorEvent.sql" />
+    <Build Include="Maintenance\Stored Procedures\ObjectSearch.sql" />
+    <Build Include="App\Stored Procedures\Reach_SummaryQuestions.sql" />
+    <Build Include="App\Stored Procedures\ORM_SummaryReport.sql" />
+    <Build Include="App\Stored Procedures\Log_uspHandleOnErrorEventExecutionLog.sql" />
+    <Build Include="App\Stored Procedures\p_Admin_StoredProcedures.sql" />
+    <Build Include="Maintenance\Stored Procedures\LoadUserActivityLog.sql" />
+    <Build Include="App\Stored Procedures\Log_uspHandleOnPostExecuteEvent.sql" />
+    <Build Include="App\Stored Procedures\p_Diagnosis.sql" />
+    <Build Include="App\Stored Procedures\p_EBP_DefaultTimePeriodMonthly.sql" />
+    <Build Include="Code\Stored Procedures\LookUp_ICD9.sql" />
+    <Build Include="App\Stored Procedures\p_EBP_TimePeriodMonthly.sql" />
+    <Build Include="Maintenance\Stored Procedures\ReloadUserActivityLog.sql" />
+    <Build Include="App\Stored Procedures\p_GroupAssignments.sql" />
+    <Build Include="Code\Stored Procedures\Lookup_ICD9Proc.sql" />
+    <Build Include="App\Stored Procedures\p_LithiumDivision.sql" />
+    <Build Include="App\Stored Procedures\Admin_DefaultParametersUpdate.sql" />
+    <Build Include="App\Stored Procedures\p_LithiumPastAppt.sql" />
+    <Build Include="App\Stored Procedures\p_REACH_ReleaseDateDefault.sql" />
+    <Build Include="App\Stored Procedures\p_LithiumPrescribers.sql" />
+    <Build Include="Code\Stored Procedures\Lookup_MaritalStatus.sql" />
+    <Build Include="App\Stored Procedures\p_REACH_ReleaseDate.sql" />
+    <Build Include="App\Stored Procedures\p_MDD_Prescriber.sql" />
+    <Build Include="App\Stored Procedures\Pharm_LithiumPatientSummary_LSV.sql" />
+    <Build Include="Tool\Stored Procedures\DoBackup.sql" />
+    <Build Include="App\Stored Procedures\Pharm_Lithium_Writeback.sql" />
+    <Build Include="App\Stored Procedures\p_Name4LookUp_LSV.sql" />
+    <Build Include="App\Stored Procedures\p_ORM_Definitions_Medications_VariableName.sql" />
+    <Build Include="App\Stored Procedures\Admin_DiagnosisValidation_LSV.sql" />
+    <Build Include="Code\Stored Procedures\PRF_HRS_OutpatDetail.sql" />
+    <Build Include="App\Stored Procedures\p_ORM_GroupType.sql" />
+    <Build Include="App\Stored Procedures\p_ORM_Measures.sql" />
+    <Build Include="Code\Stored Procedures\LookUp_Sta6a.sql" />
+    <Build Include="App\Stored Procedures\p_PDSI_Metrics.sql" />
+    <Build Include="App\Stored Procedures\p_Reports.sql" />
+    <Build Include="Code\Stored Procedures\Present_Providers.sql" />
+    <Build Include="App\Stored Procedures\p_Sta6aID.sql" />
+    <Build Include="App\Stored Procedures\p_Sta6aID_LSV.sql" />
+    <Build Include="App\Stored Procedures\p_Sta6aIDDefault.sql" />
+    <Build Include="Code\Stored Procedures\ORM_MetricTable.sql" />
+    <Build Include="App\Stored Procedures\p_VISN.sql" />
+    <Build Include="App\Stored Procedures\p_VISN_LSV.sql" />
+    <Build Include="Code\Stored Procedures\ORM_VeryHighRiskHistoric.sql" />
+    <Build Include="App\Stored Procedures\PDE_PatientTracking.sql" />
+    <Build Include="App\Stored Procedures\PDE_RecentApptsSub.sql" />
+    <Build Include="App\Stored Procedures\pDiagnosis.sql" />
+    <Build Include="App\Stored Procedures\Pharm_Antidepressant_mdd43h_PatientReport_LSV.sql" />
+    <Build Include="Code\Stored Procedures\Present_Appointments.sql" />
+    <Build Include="App\Stored Procedures\Pharm_Antidepressant_mdd43h_Writeback_LSV.sql" />
+    <Build Include="App\Stored Procedures\Pharm_AntidepressantWriteback.sql" />
+    <Build Include="Code\Stored Procedures\Pharm_Antidepressant_MPR.sql" />
+    <Build Include="Database Triggers\PreventGrantPermissions_DDLTrigger.sql" />
+    <Build Include="Database Triggers\PreventDboObjects_DDLTrigger.sql" />
+    <Build Include="Database Triggers\PreventObjectsOnPrimaryFG_DDLTrigger.sql" />
+    <Build Include="Database Triggers\PreventDDLEvents_DDLTrigger.sql" />
+    <Build Include="Security\App.sql" />
+    <Build Include="Security\Audit.sql" />
+    <Build Include="Security\Batch.sql" />
+    <Build Include="Security\Build.sql" />
+    <Build Include="Security\CDS.sql" />
+    <Build Include="Security\Code.sql" />
+    <Build Include="Security\CRISTAL.sql" />
+    <Build Include="Security\DataRequest.sql" />
+    <Build Include="Security\Dflt.sql" />
+    <Build Include="Security\Diagnosis.sql" />
+    <Build Include="Security\Dim.sql" />
+    <Build Include="Security\DOEx.sql" />
+    <Build Include="Security\EBP.sql" />
+    <Build Include="Security\ETL.sql" />
+    <Build Include="Security\FieldDataEntry.sql" />
+    <Build Include="Security\Inpatient.sql" />
+    <Build Include="Security\LookUp.sql" />
+    <Build Include="Security\Maintenance.sql" />
+    <Build Include="Security\MPR.sql" />
+    <Build Include="Security\ORM.sql" />
+    <Build Include="Security\PDE_Daily.sql" />
+    <Build Include="Security\PDSI.sql" />
+    <Build Include="Security\Present.sql" />
+    <Build Include="Security\PRF_HRS.sql" />
+    <Build Include="Security\REACH.sql" />
+    <Build Include="Security\SPPRITE.sql" />
+    <Build Include="Security\SPT.sql" />
+    <Build Include="Security\Stage.sql" />
+    <Build Include="Security\temp.sql" />
+    <Build Include="Security\Tool.sql" />
+    <Build Include="Present\Views\OutpatVisit_2Year.sql" />
+    <Build Include="REACH\Views\ReleaseDates.sql" />
+    <Build Include="App\Stored Procedures\ORM_NonVAMeds.sql" />
+    <Build Include="PRF_HRS\Tables\EpisodeDates.sql" />
+    <Build Include="Maintenance\Tables\DatabaseChangeLog.sql" />
+    <Build Include="Code\Stored Procedures\LookUpList_MHA.sql" />
+    <Build Include="App\Stored Procedures\Lookup_ListMemberList.sql" />
+    <Build Include="App\Stored Procedures\Lookup_ListMemberDomain.sql" />
+    <Build Include="App\Stored Procedures\Lookup_ListMemberApprovalStatus.sql" />
+    <Build Include="App\Stored Procedures\Lookup_AllListMember.sql" />
+    <Build Include="App\Stored Procedures\PRF_HRS_NoteTitles.sql" />
+    <Build Include="App\Stored Procedures\PRF_HRS_SubPatientAppts.sql" />
+    <Build Include="App\Stored Procedures\PRF_HRS_Tracking.sql" />
+    <Build Include="LookUp\Tables\ListMappingRule.sql" />
+    <Build Include="Code\Stored Procedures\LookUpList_HealthFactor.sql" />
+    <Build Include="Code\Stored Procedures\LookUpList_TIUDocumentDefinition.sql" />
+    <Build Include="LookUp\Tables\List.sql" />
+    <Build Include="LookUp\Tables\ListMember.sql" />
+    <Build Include="Maintenance\Stored Procedures\PublishTable.sql" />
+    <Build Include="Security\Permissions.sql" />
+    <Build Include="Present\Tables\AppointmentsFuture.sql" />
+    <Build Include="Present\Tables\AppointmentsPast.sql" />
+    <Build Include="App\Stored Procedures\MBC_HealthFactors_TIU_LSV.sql" />
+    <Build Include="Present\Views\ProviderType.sql" />
+    <Build Include="Log\Tables\ExecutionLog.sql" />
+    <Build Include="Security\Log.sql" />
+    <Build Include="Log\Tables\MessageLog.sql" />
+    <Build Include="Log\Stored Procedures\Message.sql" />
+    <Build Include="Log\Stored Procedures\ExecutionEnd.sql" />
+    <Build Include="Log\Stored Procedures\ExecutionBegin.sql" />
+    <Build Include="Security\RiskScore.sql" />
+    <Build Include="Stage\Tables\Variable.sql" />
+    <Build Include="Stage\Tables\RiskModel.sql" />
+    <Build Include="Stage\Tables\Predictor.sql" />
+    <Build Include="Stage\Tables\HypotheticalVariable.sql" />
+    <Build Include="Stage\Tables\HypotheticalModel.sql" />
+    <Build Include="RiskScore\Tables\Variable.sql" />
+    <Build Include="RiskScore\Tables\RiskModel.sql" />
+    <Build Include="RiskScore\Tables\Predictor.sql" />
+    <Build Include="RiskScore\Tables\PatientVariable.sql" />
+    <Build Include="RiskScore\Tables\PatientRiskScore.sql" />
+    <Build Include="RiskScore\Tables\HypotheticalVariable.sql" />
+    <Build Include="RiskScore\Tables\HypotheticalModel.sql" />
+    <Build Include="RiskScore\Functions\VariableID.sql" />
+    <Build Include="Code\Stored Procedures\RiskScores.sql" />
+    <Build Include="Code\Stored Procedures\RiskScoreImport.sql" />
+    <Build Include="LookUp\Tables\ICD9_VerticalSID.sql" />
+    <Build Include="Tool\Stored Procedures\CIX_CompressTemp.sql" />
+    <Build Include="Log\Tables\PublishedTableLog.sql" />
+    <Build Include="Log\Stored Procedures\PublishTable.sql" />
+    <Build Include="REACH\Tables\History.sql" />
+    <Build Include="Code\Stored Procedures\REACH_History.sql" />
+    <Build Include="Maintenance\Stored Procedures\WritebackOmitUsers.sql" />
+    <None Include="Tool\Stored Procedures\GetObjectDefinition.sql" />
+    <Build Include="Code\Stored Procedures\PRF_HRS_Episodes.sql" />
+    <Build Include="Code\Stored Procedures\Maintenance_TableDependency.sql" />
+    <Build Include="DataRequest\Tables\LithiumActivePatients.sql" />
+    <Build Include="Present\Tables\SPAN.sql" />
+    <Build Include="Code\Stored Procedures\Present_SPAN.sql" />
+    <Build Include="App\Stored Procedures\MBC_SuicideOverdoseEvents_LSV.sql" />
+    <Build Include="Present\Views\Provider_Active.sql" />
+    <Build Include="OMHSP_Standard\Tables\PRF_HRS_CompleteHistory.sql" />
+    <Build Include="Security\OMHSP_Standard.sql" />
+    <Build Include="Security\Config.sql" />
+    <Build Include="App\Stored Procedures\ORM_Diagnosis_LSV.sql" />
+    <Build Include="Config\Tables\Maintenance_Jobs.sql" />
+    <Build Include="Config\Stored Procedures\GetMaintenanceJobs.sql" />
+    <Build Include="Code\Stored Procedures\Choice_Providers.sql" />
+    <Build Include="App\Stored Procedures\ORM_DiagnosisList.sql" />
+    <Build Include="CHOICE\Tables\Providers.sql" />
+    <Build Include="CHOICE\Tables\Prescriptions.sql" />
+    <Build Include="Security\CHOICE.sql" />
+    <Build Include="OMHSP_Standard\Tables\SuicideOverdoseEvent.sql" />
+    <Build Include="Code\Stored Procedures\OMHSP_Standard_SuicideOverdoseEvent.sql" />
+    <Build Include="CDS\Tables\DashboardHits.sql" />
+    <Build Include="Code\Stored Procedures\CDS_Dashboard_Hits.sql" />
+    <Build Include="App\Stored Procedures\Pharm_ClozapineMonitoring_LSV.sql" />
+    <Build Include="Config\Tables\REACH_OutreachStatusQuestions.sql" />
+    <Build Include="Config\Tables\WritebackUsersToOmit.sql" />
+    <Build Include="Config\Tables\SPPRITE_RiskFactors.sql" />
+    <Build Include="App\Stored Procedures\p_SPPRITE_RiskFactors.sql" />
+    <Build Include="Config\Tables\EBP_TemplateLookUp.sql" />
+    <Build Include="Config\Tables\InferredSta6AID.sql" />
+    <Build Include="App\Stored Procedures\p_SPPRITE_GroupAssignments.sql" />
+    <Build Include="Maintenance\Tables\MonitoringSSRSStatus.sql" />
+    <Build Include="Maintenance\Tables\MonitoringSSRSLinearRegression.sql" />
+    <Build Include="Maintenance\Tables\MonitoringSSRSCount.sql" />
+    <Build Include="Maintenance\Views\vwMonitoringSSRSStatus.sql" />
+    <Build Include="Maintenance\Views\vwMonitoringSSRSStatistics.sql" />
+    <Build Include="Maintenance\Views\vwMonitoringSSRSLog.sql" />
+    <Build Include="Code\Stored Procedures\Maintenance_MonitoringSSRSBuild.sql" />
+    <Build Include="Code\Stored Procedures\Maintenance_MonitoringSSRSCount.sql" />
+    <Build Include="App\Stored Procedures\p_Monitoring_SSRSLocation.sql" />
+    <Build Include="App\Stored Procedures\p_Monitoring_SSRSGroupName.sql" />
+    <Build Include="App\Stored Procedures\Monitoring_SSRSTopUsers.sql" />
+    <Build Include="App\Stored Procedures\Monitoring_SSRSStatus.sql" />
+    <Build Include="App\Stored Procedures\Monitoring_SSRSLogStatus.sql" />
+    <Build Include="App\Stored Procedures\Monitoring_SSRSDayCounts.sql" />
+    <Build Include="App\Stored Procedures\Monitoring_SSRSCount.sql" />
+    <Build Include="Maintenance\Stored Procedures\MonitoringSSRSLinearRegressionSpan.sql" />
+    <Build Include="Maintenance\Functions\fn_RemoveFileExtension.sql" />
+    <Build Include="Maintenance\Functions\fn_ParseFolderName.sql" />
+    <Build Include="App\Stored Procedures\ORM_Definitions_ICDProc.sql" />
+    <Build Include="App\Stored Procedures\ORM_Definitions_CPT.sql" />
+    <Build Include="App\Stored Procedures\Monitoring_ActiveReports.sql" />
+    <Build Include="Security\Common.sql" />
+    <Build Include="App\Stored Procedures\MBC_Inpatient_LSV.sql" />
+    <Build Include="ORM\Tables\DefinitionsReportRelevantDx.sql" />
+    <Build Include="ORM\Tables\GroupType.sql" />
+    <Build Include="ORM\Tables\DefinitionsReportStopCode.sql" />
+    <Build Include="ORM\Tables\DefinitionsReportRx.sql" />
+    <Build Include="ORM\Tables\NonPharmPainTxDetails.sql" />
+    <Build Include="App\Stored Procedures\ORM_Definitions_MedicationDetail.sql" />
+    <Build Include="App\Stored Procedures\ORM_Definitions_NonPharmTxDetail.sql" />
+    <Build Include="Present\Tables\CommunityStatusNote.sql" />
+    <Build Include="Code\Stored Procedures\Present_CommunityStatusNote.sql" />
+    <Build Include="App\Stored Procedures\ORM_DefinitionsNonPharmTxCategories.sql" />
+    <Build Include="App\Stored Procedures\ORM_DefinitionsMedicationCategories.sql" />
+    <Build Include="App\Stored Procedures\ORM_Definitions_ClinicalCategories.sql" />
+    <Build Include="App\Stored Procedures\p_Sta6aIDHistoric.sql" />
+    <Build Include="Config\Tables\Present_ActivePatientRequirement.sql" />
+    <Build Include="App\Stored Procedures\MBC_FullSafetyPlan_LSV.sql" />
+    <Build Include="REACH\Tables\NationalTiers.sql" />
+    <Build Include="Code\Stored Procedures\REACH_NationalTiers.sql" />
+    <Build Include="Maintenance\Stored Procedures\RefreshAllViews.sql" />
+    <Build Include="RiskScore\Views\PatientPopulation.sql" />
+    <Build Include="App\Views\vwConfigMaintenanceJobs.sql" />
+    <Build Include="Security\COVID.sql" />
+    <Build Include="OMHSP_Standard\Tables\SuicideRiskManagement.sql" />
+    <Build Include="Code\Stored Procedures\OMHSP_Standard_SuicideRiskManagement.sql" />
+    <Build Include="Code\Stored Procedures\Lookup_MorphineEquiv_Outpatient_OpioidforPain.sql" />
+    <Build Include="LookUp\Tables\MorphineEquiv_Outpatient_OpioidforPain.sql" />
+    <Build Include="Present\Tables\RxTransitionsMH.sql" />
+    <Build Include="Code\Stored Procedures\Present_RxTransitionsMH.sql" />
+    <Build Include="App\Stored Procedures\MBC_RxTransitionsMH_LSV.sql" />
+    <Build Include="App\Stored Procedures\SPPRITE_PatientReport_LSV.sql" />
+    <Build Include="Code\Stored Procedures\SPPRITE_PatientDetail.sql" />
+    <Build Include="Code\Stored Procedures\SPPRITE_RiskIDandDisplay.sql" />
+    <Build Include="SPPRITE\Tables\RiskIDandDisplay.sql" />
+    <Build Include="SPPRITE\Tables\PatientDetail.sql" />
+    <Build Include="SPPRITE\Views\SomaticTx.sql" />
+    <Build Include="REACH\Tables\MonthlyMetricBenchmarks.sql" />
+    <Build Include="PRF_HRS\Views\ActivePRF.sql" />
+    <Build Include="Code\Stored Procedures\Reach_MonthlyMetrics_Wk34.sql" />
+    <Build Include="Code\Stored Procedures\Reach_MonthlyMetrics_Wk12.sql" />
+    <Build Include="App\Stored Procedures\MBC_CaringLetters_LSV.sql" />
+    <Build Include="COVID\Tables\HRF_SurveillancePatient.sql" />
+    <Build Include="COVID\Tables\HRF_SurveillanceFacility.sql" />
+    <Build Include="COVID\Views\HRF_Surveillance.sql" />
+    <Build Include="Security\CDW2.sql" />
+    <Build Include="App\Stored Procedures\Admin_ErrorNotice_v02.sql" />
+    <Build Include="Config\Tables\ErrorNotice_v02.sql" />
+    <Build Include="Config\Tables\Present_ProjectPatientRequirement.sql" />
+    <Build Include="Code\Stored Procedures\LookUpList_PowerForm.sql" />
+    <Build Include="App\Stored Procedures\MBC_Patient_LSV_v02.sql" />
+    <Build Include="Config\Tables\Present_ProjectDisplayRequirement.sql" />
+    <Build Include="Code\Stored Procedures\RiskScore_PatVar_AggSub.sql" />
+    <Build Include="PRF_HRS\Tables\PatientReport_v02.sql" />
+    <Build Include="REACH\Tables\MonthlyMetrics.sql" />
+    <Build Include="Code\Stored Procedures\Reach_MonthlyMetrics.sql" />
+    <Build Include="App\Stored Procedures\Reach_HistoricMetrics.sql" />
+    <Build Include="Code\Stored Procedures\PRF_HRS_PatientReport_v02.sql" />
+    <Build Include="Code\Stored Procedures\LookUpList_ActivityType.sql" />
+    <Build Include="LookUp\Tables\ListMember_v02.sql" />
+    <Build Include="LookUp\Tables\ListMappingRule_v02.sql" />
+    <Build Include="Code\Stored Procedures\LookUpList_ListMember.sql" />
+    <Build Include="Security\VeteranMill.sql" />
+    <Build Include="Security\SVeteranMill.sql" />
+    <Build Include="Security\SurgMill.sql" />
+    <Build Include="Security\StaffMill.sql" />
+    <Build Include="Security\SStaffMill.sql" />
+    <Build Include="Security\SchedMill.sql" />
+    <Build Include="Security\ProblemMill.sql" />
+    <Build Include="Security\PharmacyMill.sql" />
+    <Build Include="Security\PathologyMill.sql" />
+    <Build Include="Security\OrderMill.sql" />
+    <Build Include="Security\NDimMill.sql" />
+    <Build Include="Security\MAEMill.sql" />
+    <Build Include="Security\EncMill.sql" />
+    <Build Include="Security\DataDictionary.sql" />
+    <Build Include="Security\ClinicalEventMill.sql" />
+    <Build Include="Security\CareChartMill.sql" />
+    <Build Include="Security\BloodBankMill.sql" />
+    <Build Include="Security\BillingMill.sql" />
+    <Build Include="Security\AllergyMill.sql" />
+    <Build Include="COVID\Views\HRF_SurveillanceMonthly.sql" />
+    <Build Include="Config\Tables\MasterPatientFields.sql" />
+    <Build Include="Present\Tables\PDMP.sql" />
+    <Build Include="Code\Stored Procedures\Present_PDMP.sql" />
+    <Build Include="ORM\Tables\NaloxoneKit.sql" />
+    <Build Include="Code\Stored Procedures\ORM_NaloxoneKit.sql" />
+    <Build Include="Present\Tables\MOUD.sql" />
+    <Build Include="Code\Stored Procedures\Present_MOUD.sql" />
+    <Build Include="App\Stored Procedures\Present_MOUD.sql" />
+    <Build Include="Stage\Tables\VariableAggSub.sql" />
+    <Build Include="RiskScore\Tables\VariableAggSub.sql" />
+    <Build Include="Config\Views\PresentActivePatientDetail.sql" />
+    <Build Include="Load\Tables\Alex_Definition.sql" />
+    <Build Include="Load\Tables\Alex_KeySet.sql" />
+    <Build Include="Alex\Tables\Blueprint.sql" />
+    <Build Include="Alex\Tables\Definition.sql" />
+    <Build Include="Alex\Tables\KeySet.sql" />
+    <Build Include="Dflt\Functions\fxAlex_GetVersionMax.sql" />
+    <Build Include="Dflt\Functions\fxAlex_GetVersion.sql" />
+    <Build Include="Dflt\Functions\fxAlex_GetActiveOn.sql" />
+    <Build Include="Dflt\Functions\fxAlex_GetActive.sql" />
+    <Build Include="Maintenance\Stored Procedures\UpdateAlexFunction.sql" />
+    <Build Include="Security\Load.sql" />
+    <Build Include="Security\Alex.sql" />
+    <Build Include="Security\MultumMill.sql" />
+    <Build Include="App\Stored Procedures\p_Facility.sql" />
+    <Build Include="LookUp\Tables\NationalDrug_Vertical.sql" />
+    <Build Include="App\Stored Procedures\p_VISN_v02.sql" />
+    <Build Include="LookUp\Tables\Sta6aCumulative.sql" />
+    <Build Include="App\Stored Procedures\EBP_Clinician_Lookup.sql" />
+    <Build Include="Code\Stored Procedures\MHA_CSSRS_EDUC.sql" />
+    <Build Include="App\Tables\MHA_CSSRS_EDUC.sql" />
+    <Build Include="OMHSP_Standard\Tables\MentalHealthAssistant_v02.sql" />
+    <Build Include="Code\Stored Procedures\OMHSP_Standard_MentalHealthAssistant_v02.sql" />
+    <Build Include="Security\Veteran.sql" />
+    <Build Include="Security\SVeteran.sql" />
+    <Build Include="Security\SStaff.sql" />
+    <Build Include="Security\PIT.sql" />
+    <Build Include="Security\NDim.sql" />
+    <Build Include="Security\Fee.sql" />
+    <Build Include="App\Stored Procedures\Admin_PERCUser.sql" />
+    <Build Include="Common\Tables\MVIPersonSIDPatientPersonSIDLog.sql" />
+    <Build Include="Common\Tables\MVIPersonSIDPatientPersonSID.sql" />
+    <Build Include="Common\Views\vwMVIPersonSIDPatientPersonSID.sql" />
+    <Build Include="Common\Views\vwMVIPersonSIDPatientICN.sql" />
+    <Build Include="Code\Stored Procedures\UpdateMVIPersonSIDPatientPersonSID.sql" />
+    <Build Include="Security\Vital.sql" />
+    <Build Include="Security\TIU.sql" />
+    <Build Include="Security\SPatient.sql" />
+    <Build Include="Security\RxOut.sql" />
+    <Build Include="Security\RPCMM.sql" />
+    <Build Include="Security\PatSub.sql" />
+    <Build Include="Security\Patient.sql" />
+    <Build Include="Security\Outpat.sql" />
+    <Build Include="Security\NonVAMed.sql" />
+    <Build Include="Security\MH.sql" />
+    <Build Include="Security\Inpat.sql" />
+    <Build Include="Security\Immun.sql" />
+    <Build Include="Security\HF.sql" />
+    <Build Include="Security\CPRSOrder.sql" />
+    <Build Include="Security\Con_.sql" />
+    <Build Include="Security\Chem.sql" />
+    <Build Include="Security\BCMA.sql" />
+    <Build Include="Security\Appt.sql" />
+    <Build Include="App\Stored Procedures\p_Monitoring_SSRSObjectFileName.sql" />
+    <Build Include="Code\Stored Procedures\SMI_PatientReport.sql" />
+    <Build Include="SUD\Tables\Cohort.sql" />
+    <Build Include="Security\SUD.sql" />
+    <Build Include="Code\Stored Procedures\SUD_Cohort.sql" />
+    <Build Include="App\Views\vwOutpatWorkload_StatusShowed.sql" />
+    <Build Include="App\Views\vwCDW_Outpat_Workload.sql" />
+    <Build Include="SMI\Tables\PatientReport.sql" />
+    <Build Include="Security\SMI.sql" />
+    <Build Include="App\Stored Procedures\SMI_PatientReport_LSV.sql" />
+    <Build Include="PRF_HRS\Tables\PatientAddress.sql" />
+    <Build Include="Code\Stored Procedures\PRF_HRS_PatientAddress.sql" />
+    <Build Include="Security\ADR.sql" />
+    <Build Include="App\Stored Procedures\SMI_PatientReportWriteback.sql" />
+    <Build Include="SMI\Tables\PatientReport_Writeback.sql" />
+    <Build Include="App\Stored Procedures\SMI_PatientReportWriteback_LSV.sql" />
+    <Build Include="App\Views\vwCDW_Chem_PatientLabChem.sql" />
+    <Build Include="Security\LCustomer.sql" />
+    <Build Include="Security\Meta.sql" />
+    <Build Include="PDSI\Tables\PatientDetails.sql" />
+    <Build Include="Present\Views\GroupAssignments_PDSI.sql" />
+    <Build Include="Code\Stored Procedures\PDSI_PatientDetails.sql" />
+    <Build Include="VBA\Tables\DebtManagementCenter.sql" />
+    <Build Include="Code\Stored Procedures\VBA_DebtManagementCenter.sql" />
+    <Build Include="Security\VBA.sql" />
+    <Build Include="App\Stored Procedures\MBC_Debt_LSV.sql" />
+    <Build Include="Code\Stored Procedures\PDSI_MetricTable.sql" />
+    <Build Include="PDSI\Tables\MetricTable.sql" />
+    <Build Include="App\Views\vwLCustomer_AllAuthorization.sql" />
+    <Build Include="App\Stored Procedures\MBC_AddressDetail_LSV.sql" />
+    <Build Include="App\Views\vwPBILSVUsers.sql" />
+    <Build Include="App\Views\vwPBILSVUserAuthorization.sql" />
+    <Build Include="App\Views\vwPBILSVSites.sql" />
+    <Build Include="App\Stored Procedures\StopCodeCategories.sql" />
+    <Build Include="App\Stored Procedures\StationFYChecklistid.sql" />
+    <Build Include="App\Stored Procedures\StationFY.sql" />
+    <Build Include="App\Stored Procedures\StationDefaultFY.sql" />
+    <Build Include="App\Stored Procedures\p_StationSta6a.sql" />
+    <Build Include="App\Stored Procedures\p_StationDefaultChecklistID.sql" />
+    <Build Include="App\Stored Procedures\p_StationChecklistIDCumulative.sql" />
+    <Build Include="App\Stored Procedures\p_StationChecklistID.sql" />
+    <Build Include="App\Stored Procedures\p_PDSI_GroupType.sql" />
+    <Build Include="App\Stored Procedures\p_PDSI_MetricGroupings.sql" />
+    <Build Include="Present\Tables\SStaffSID.sql" />
+    <Build Include="Present\Tables\SStaff.sql" />
+    <Build Include="Code\Stored Procedures\Present_SStaff.sql" />
+    <Build Include="PDSI\Tables\CM_Status.sql" />
+    <Build Include="App\Stored Procedures\p_PDSI_Provider.sql" />
+    <Build Include="OMHSP_Standard\Tables\CSRE_Details.sql" />
+    <Build Include="OMHSP_Standard\Tables\CSRE.sql" />
+    <Build Include="Code\Stored Procedures\OMHSP_Standard_CSRE.sql" />
+    <Build Include="Present\Tables\NLP_Variables.sql" />
+    <Build Include="Code\Stored Procedures\Present_NLP_Variables.sql" />
+    <Build Include="LookUp\Tables\ICD10_Display.sql" />
+    <Build Include="SMI\Tables\AppointmentsPast.sql" />
+    <Build Include="SMI\Tables\AppointmentsFuture.sql" />
+    <Build Include="Code\Stored Procedures\SMI_Appointments.sql" />
+    <Build Include="ORM\Tables\PatientOTRRView.sql" />
+    <Build Include="Code\Stored Procedures\ORM_PatientOTRRView.sql" />
+    <Build Include="App\Stored Procedures\ORM_OTRR_LSV.sql" />
+    <Build Include="App\Stored Procedures\OTRRMedications_LSV.sql" />
+    <Build Include="App\Stored Procedures\ORM_OTRRLab_LSV.sql" />
+    <Build Include="Code\Stored Procedures\SDH_HealthFactorSocialDeterminants.sql" />
+    <Build Include="App\Stored Procedures\pPDSI_Metrics.sql" />
+    <Build Include="App\Stored Procedures\p_EBP_Template.sql" />
+    <Build Include="Security\Pharm.sql" />
+    <Build Include="Pharm\Tables\AntiDepressant_MPR_PatientReport.sql" />
+    <Build Include="Pharm\Tables\Antidepressant_Writeback.sql" />
+    <Build Include="Pharm\Tables\ClozapineMonitoring.sql" />
+    <Build Include="Pharm\Tables\Lithium_Writeback.sql" />
+    <Build Include="Pharm\Tables\LithiumPatientReport.sql" />
+    <Build Include="App\Stored Procedures\p_DashboardHitDates.sql" />
+    <Build Include="App\Stored Procedures\Monitoring_DashboardHits.sql" />
+    <Build Include="Code\Stored Procedures\EBP_DashboardBaseTable.sql" />
+    <Build Include="App\Stored Procedures\p_EBP_Month.sql" />
+    <Build Include="App\Stored Procedures\p_EBP_Clinician.sql" />
+    <Build Include="CDS\Tables\SSNLookup_AuditWriteback.sql" />
+    <Build Include="App\Stored Procedures\SSNLookup_AuditWriteback.sql" />
+    <Build Include="Maintenance\Views\vwRealignmentExclusions.sql" />
+    <Build Include="ORM\Views\vwDOD_TriSTORM.sql" />
+    <Build Include="App\Stored Procedures\MBC_NLP_LSV.sql" />
+    <Build Include="App\Stored Procedures\p_ORM_OPPEMeasures.sql" />
+    <Build Include="App\Stored Procedures\ORM_OPPEReport.sql" />
+    <Build Include="Code\Stored Procedures\ORM_OPPEMetric.sql" />
+    <Build Include="ORM\Tables\OPPEMetric.sql" />
+    <Build Include="App\Stored Procedures\ORM_OPPEPatientReport_LSV.sql" />
+    <Build Include="App\Tables\UserActivityLog.sql" />
+    <Build Include="ORM\Views\vwDOD_DxVertical.sql" />
+    <Build Include="ORM\Tables\OPPERiskMitigation.sql" />
+    <Build Include="Code\Stored Procedures\ORM_OPPERiskMitigation.sql" />
+    <Build Include="SMI\Tables\MHProviders.sql" />
+    <Build Include="Present\Views\GroupAssignments_SMI.sql" />
+    <Build Include="App\Stored Procedures\p_SMI_GroupAssignments.sql" />
+    <Build Include="Security\BHIP.sql" />
+    <Build Include="Code\Stored Procedures\LookUpList_StopCode.sql" />
+    <Build Include="Tool\Stored Procedures\cspObjectSearch.sql" />
+    <Build Include="Code\Stored Procedures\LookUpList_Char4.sql" />
+    <Build Include="App\Stored Procedures\p_LookupList.sql" />
+    <Build Include="App\Stored Procedures\Definitions_HealthFactorDTACrosswalk.sql" />
+    <Build Include="Config\Tables\PERC_Acronyms.sql" />
+    <Build Include="CDS\Tables\PERC_Acronyms_Writeback.sql" />
+    <Build Include="App\Stored Procedures\PERC_Acronyms_Writeback.sql" />
+    <Build Include="App\Stored Procedures\PERC_Acronyms.sql" />
+    <Build Include="LookUp\Tables\Drug_VUID.sql" />
+    <Build Include="App\Stored Procedures\MBC_PGx_LSV.sql" />
+    <Build Include="Security\PDW.sql" />
+    <Build Include="EBP\Tables\TemplateVisits.sql" />
+    <Build Include="BHIP\Tables\PatientDetails.sql" />
+    <Build Include="Code\Stored Procedures\BHIP_PatientDetails.sql" />
+    <Build Include="BHIP\Tables\RiskFactors.sql" />
+    <Build Include="EBP\Tables\TemplateVisitsHF.sql" />
+    <Build Include="Code\Stored Procedures\EBP_TemplateVisits.sql" />
+    <Build Include="Present\Tables\SPTelehealth.sql" />
+    <Build Include="Code\Stored Procedures\Present_SPTelehealth.sql" />
+    <Build Include="Security\Cerner.sql" />
+    <Build Include="Synonyms\synCDWWork.sql" />
+    <Build Include="Synonyms\synCDWWork2.sql" />
+    <Build Include="Synonyms\synCore.sql" />
+    <Build Include="Synonyms\synMDS.sql" />
+    <Build Include="Synonyms\synPDW.sql" />
+    <Build Include="Synonyms\synXLA.sql" />
+    <Build Include="Security\XLA.sql" />
+    <Build Include="Security\SPV.sql" />
+    <Build Include="Synonyms\synCerner.sql" />
+    <Build Include="Config\Tables\SPPRITE_OFRCare.sql" />
+    <Build Include="App\Stored Procedures\MBC_CSRE_LSV.sql" />
+    <Build Include="App\Stored Procedures\MBC_EBP_LSV.sql" />
+    <Build Include="App\Stored Procedures\BHIP_MissedAppointments_PBI.sql" />
+    <Build Include="App\Views\vwPBILSVMembership.sql" />
+    <Build Include="App\Stored Procedures\ORM_PHASERSites.sql" />
+    <Build Include="Config\Tables\ORM_PgX_Randomization.sql" />
+    <Build Include="App\Stored Procedures\StationColor_PBI.sql" />
+    <Build Include="App\Stored Procedures\p_Date_PBI.sql" />
+    <Build Include="App\Stored Procedures\p_PDE_Provider.sql" />
+    <Build Include="Maintenance\Stored Procedures\CreateBackUps_Monthly.sql" />
+    <Build Include="Config\Tables\PDE_DispositionsExcluded.sql" />
+    <Build Include="App\Stored Procedures\PDSI_Writeback_PatientData.sql" />
+    <Build Include="App\Stored Procedures\PDSI_Writeback_Measures.sql" />
+    <Build Include="App\Stored Procedures\PDSI_Writeback_Action.sql" />
+    <Build Include="App\Stored Procedures\PDSI_SummaryReport.sql" />
+    <Build Include="SDH\Tables\ScreenResults.sql" />
+    <Build Include="Security\SDH.sql" />
+    <Build Include="SDH\Tables\HealthFactors.sql" />
+    <Build Include="COMPACT\Tables\Episodes.sql" />
+    <Build Include="Code\Stored Procedures\COMPACT.sql" />
+    <Build Include="Security\COMPACT.sql" />
+    <Build Include="App\Stored Procedures\MBC_COMPACT_LSV.sql" />
+    <Build Include="SUD\Tables\IDUEvidence.sql" />
+    <Build Include="SUD\Tables\IDUCohort.sql" />
+    <Build Include="SUD\Tables\IDU_Rx.sql" />
+    <Build Include="COMPACT\Tables\ContactHistory.sql" />
+    <Build Include="App\Tables\SUD_IDUCohort.sql" />
+    <Build Include="App\Stored Procedures\ORM_UDSLabResults_LSV.sql" />
+    <Build Include="App\Stored Procedures\PRF_HRS_CaringLettersTrends.sql" />
+    <Build Include="Present\Tables\NonVAMed.sql" />
+    <Build Include="Config\Tables\PRF_HRS_CaringLetterRollout.sql" />
+    <Build Include="Code\Stored Procedures\SUD_IVDU.sql" />
+    <Build Include="App\Stored Procedures\SUD_IDUHarmReduction_PBI.sql" />
+    <Build Include="App\Stored Procedures\SUD_IDUEvidence_PBI.sql" />
+    <Build Include="App\Stored Procedures\SUD_IDUCohort_PBI.sql" />
+    <Build Include="App\Stored Procedures\p_PRF_HRS_CaringLetterDates.sql" />
+    <Build Include="App\Stored Procedures\PRF_HRS_CaringLettersMailingList.sql" />
+    <Build Include="SUD\Tables\IDU_Writeback.sql" />
+    <Build Include="App\Stored Procedures\SUD_IDUWriteback.sql" />
+    <Build Include="App\Stored Procedures\SUD_HepCLabs_PBI.sql" />
+    <Build Include="App\Stored Procedures\PRF_HRS_CaringLettersDetails.sql" />
+    <Build Include="App\Stored Procedures\PRF_HRS_CaringLettersWriteback.sql" />
+    <Build Include="Code\Stored Procedures\EBP_Quarterly.sql" />
+    <Build Include="PDSI\Tables\PatientQuickView.sql" />
+    <Build Include="Code\Stored Procedures\PDSI_PatientQuickView.sql" />
+    <Build Include="LookUp\Tables\CDS_ALEX.sql" />
+    <Build Include="Security\StaffSub.sql" />
+    <Build Include="Security\Micro.sql" />
+    <Build Include="ORM\Tables\NonVAProviders.sql" />
+    <Build Include="Code\Stored Procedures\ORM_NonVAProviders.sql" />
+    <Build Include="Common\Tables\InpatientRecords_002.sql" />
+    <Build Include="Code\Stored Procedures\Common_InpatientRecords_002.sql" />
+    <Build Include="SBOSR\Tables\SDVDetails_PBI.sql" />
+    <Build Include="SBOSR\Tables\ScreenEngage_PBI.sql" />
+    <Build Include="Code\Stored Procedures\SBOSR_SDVDetails_PBI.sql" />
+    <Build Include="Code\Stored Procedures\SBOSR_ScreenEngage_PBI.sql" />
+    <Build Include="App\Stored Procedures\SBOSR_SDVDetails_PBI.sql" />
+    <Build Include="App\Stored Procedures\SBOSR_ScreenEngage_PBI.sql" />
+    <Build Include="App\Stored Procedures\SBOSR_PatientDemographics_PBI.sql" />
+    <Build Include="App\Stored Procedures\SBOSR_Inpatient_PBI.sql" />
+    <Build Include="App\Stored Procedures\SBOSR_Diagnoses_PBI.sql" />
+    <Build Include="Security\SBOSR.sql" />
+    <Build Include="Security\Staff.sql" />
+    <Build Include="Security\uBISL_BASECampEXE.sql" />
+    <Build Include="Present\Tables\CaringLetters.sql" />
+    <Build Include="Code\Stored Procedures\Present_CaringLetters.sql" />
+    <Build Include="PRF\Tables\BehavioralMissingPatient.sql" />
+    <Build Include="PRF\Tables\Discrepancies.sql" />
+    <Build Include="Code\Stored Procedures\PRF_Discrepancies.sql" />
+    <Build Include="Code\Stored Procedures\PRF_BehavioralMissingPatient.sql" />
+    <Build Include="Security\PRF.sql" />
+    <Build Include="App\Stored Procedures\PRF_Discrepancies.sql" />
+    <Build Include="CDS\Tables\Onboarding_Demo.sql" />
+    <Build Include="Code\Stored Procedures\Onboarding_Demo.sql" />
+    <Build Include="Security\OMHSP.sql" />
+    <Build Include="Security\OMHSP_FY22Q1.sql" />
+    <Build Include="Security\OMHSP_FY22Q2.sql" />
+    <Build Include="Security\OMHSP_FY22Q3.sql" />
+    <Build Include="Security\OMHSP_FY22Q4.sql" />
+    <Build Include="Security\OMHSP_FY23Q1.sql" />
+    <Build Include="Security\OMHSP_FY23Q2.sql" />
+    <Build Include="Security\OMHSP_FY23Q3.sql" />
+    <Build Include="Security\MDS.sql" />
+    <Build Include="COMPACT\Tables\Eligibility.sql" />
+    <Build Include="Code\Stored Procedures\COMPACT_Eligibility.sql" />
+    <Build Include="BHIP\Tables\MHTCAssignment.sql" />
+    <Build Include="App\Stored Procedures\BHIP_MHTCAssignment.sql" />
+    <Build Include="Code\Stored Procedures\COMPACT_IVC.sql" />
+    <Build Include="COMPACT\Tables\IVC.sql" />
+    <Build Include="Security\OMHSP_FY23Q4.sql" />
+    <Build Include="Config\Tables\DMC_DisplayMessage.sql" />
+    <Build Include="SUD\Tables\TobaccoUD.sql" />
+    <Build Include="Code\Stored Procedures\SUD_TobaccoUD.sql" />
+    <Build Include="App\Stored Procedures\SUD_TobaccoUD_LSV.sql" />
+    <Build Include="Security\OMHSP_FY24Q1.sql" />
+    <Build Include="Code\Stored Procedures\Maintenance_WeeklyFullReload.sql" />
+    <Build Include="Config\Tables\ReportUsers.sql" />
+    <Build Include="Code\Stored Procedures\ORM_DoD_OUD.sql" />
+    <Build Include="ORM\Tables\DoD_OUD.sql" />
+    <Build Include="Present\Views\Provider_MHTeam_ICN.sql" />
+    <Build Include="Present\Views\Provider_MHTeam.sql" />
+    <Build Include="App\Stored Procedures\COMPACT_PatientInfo_PBI.sql" />
+    <Build Include="App\Stored Procedures\COMPACT_Episodes_PBI.sql" />
+    <Build Include="App\Stored Procedures\COMPACT_ContactHistory_PBI.sql" />
+    <Build Include="Code\Stored Procedures\BHIP_MHTCAssignment.sql" />
+    <Build Include="PDE_Daily\Tables\Diagnoses.sql" />
+    <Build Include="App\Stored Procedures\PDE_Diagnoses.sql" />
+    <Build Include="App\Views\vwBHIP_MHTC_Assignment.sql" />
+    <Build Include="App\Stored Procedures\BHIP_MHTCAssignment_PBI.sql" />
+    <None Include="App\Stored Procedures\Monitoring_ValueSetChanges.sql" />
+    <Build Include="SDH\Tables\IPV_Screen.sql" />
+    <Build Include="App\Stored Procedures\MBC_MHA_LSV.sql" />
+    <Build Include="Security\OracleH_QI.sql" />
+    <Build Include="ORM\Tables\DoDOUDVAContact.sql" />
+    <Build Include="ORM\Tables\DoDOUDDiagnosisDate.sql" />
+    <Build Include="Code\Stored Procedures\ORM_DoDOUDVAContact.sql" />
+    <Build Include="Code\Stored Procedures\ORM_DoDOUDDiagnosisDate.sql" />
+    <Build Include="ORM\Tables\DoDOUDPatientReport.sql" />
+    <Build Include="Code\Stored Procedures\ORM_DoDOUDPatientReport.sql" />
+    <Build Include="ORM\Tables\DoD_Max_Encounter_Date.sql" />
+    <Build Include="Code\Stored Procedures\ORM_DoD_Max_Encounter_Date.sql" />
+    <Build Include="OracleH_QI\Tables\CSRE1PatientInfo.sql" />
+    <Build Include="Code\Stored Procedures\OracleH_QI_CSRE1PatientInfo.sql" />
+    <Build Include="App\Stored Procedures\OracleH_QI_CSRE1PatientInfo.sql" />
+    <Build Include="CDS\Tables\DashboardHits_PBI_Stage.sql" />
+    <Build Include="App\Stored Procedures\ORM_DoDOUDPatient_LSV.sql" />
+    <Build Include="Security\VCL.sql" />
+    <Build Include="SUD\Tables\CaseFinderRisk.sql" />
+    <Build Include="SUD\Tables\CaseFinderCohort.sql" />
+    <Build Include="Code\Stored Procedures\SUD_CaseFinderCohort.sql" />
+    <Build Include="App\Stored Procedures\p_ORM_Quarters.sql" />
+    <Build Include="Security\OMHSP_FY24Q2.sql" />
+    <Build Include="App\Stored Procedures\p_SUD_TobaccoUD_GroupAssignments.sql" />
+    <Build Include="ORM\Tables\ORM_DoDOUDZ79891.sql" />
+    <Build Include="Code\Stored Procedures\ORM_DoDOUDZ79891.sql" />
+    <Build Include="App\Tables\DefaultParameters.sql" />
+    <Build Include="App\Stored Procedures\DefaultParameters_sp.sql" />
+    <Build Include="Stage\Tables\FactTIUNoteTitles.sql" />
+    <Build Include="Code\Stored Procedures\Stage_FactTIUNoteTitles.sql" />
+    <Build Include="BHIP\Tables\MHTC_FollowUpDetails.sql" />
+    <Build Include="BHIP\Tables\MHTC_FollowUp.sql" />
+    <Build Include="Code\Stored Procedures\BHIP_MHTC_FollowUp.sql" />
+    <Build Include="App\Stored Procedures\BHIP_MHTCFollowUpDetails_PBI.sql" />
+    <Build Include="App\Stored Procedures\BHIP_MHTCFollowUp_PBI.sql" />
+    <Build Include="App\Stored Procedures\OPPEReport_ReportDatasets.sql" />
+    <Build Include="App\Stored Procedures\DefaultParameters_UpdateSP.sql" />
+    <Build Include="App\Stored Procedures\p_SUD_TobaccoUD_StaffAssignedOutreach.sql" />
+    <Build Include="DOEx\Synonyms\vwFLOWPatientCohort.sql" />
+    <Build Include="App\Stored Procedures\OTRR_ReportDatasets.sql" />
+    <Build Include="Security\CommunityCare.sql" />
+    <Build Include="App\Stored Procedures\SummaryReport_ReportDatasets.sql" />
+    <Build Include="App\Stored Procedures\QuickView_ReportDatasets.sql" />
+    <Build Include="App\Stored Procedures\PatientReport_ReportDatasets.sql" />
+    <Build Include="COMPACT\Tables\Template.sql" />
+    <Build Include="App\Stored Procedures\OPPEPatientReport_ReportDatasets.sql" />
+    <Build Include="App\Stored Procedures\COMPACT_Template_PBI.sql" />
+    <Build Include="App\Stored Procedures\COMPACT_PatientFacility_PBI.sql" />
+    <Build Include="App\Stored Procedures\COMPACT_EpisodeDates_PBI.sql" />
+    <Build Include="DeltaView\Tables\DeltaEntityRoutineMap.sql" />
+    <Build Include="DeltaView\Tables\BTRTConfig.sql" />
+    <Build Include="DeltaView\Tables\MVIPersonSIDPatientPersonSIDLog_POCTestOnly.sql" />
+    <Build Include="DeltaView\Tables\MVIPersonSIDPatientPersonSID_POCTestOnly.sql" />
+    <Build Include="DeltaView\Tables\RoutineMasterETL.sql" />
+    <Build Include="DeltaView\Functions\fn_BTRT_PrependAliasFromDelimitedColumns.sql" />
+    <Build Include="DeltaView\Functions\fn_BTRT_GetJoinSpecFromDelimitedColumns.sql" />
+    <Build Include="DeltaView\Stored Procedures\usp_InsertDeltaKeySnapshotTable.sql" />
+    <Build Include="DeltaView\Stored Procedures\usp_CreateRoutineFromTemplate.sql" />
+    <Build Include="DeltaView\Stored Procedures\Common_InpatientRecords_002_POCTestOnly.sql" />
+    <Build Include="DeltaView\Stored Procedures\usp_GenerateDeltaSQL.sql" />
+    <Build Include="DeltaView\Stored Procedures\UpdateMVIPersonSIDPatientPersonSID_POCTestOnly.sql" />
+    <Build Include="Security\DeltaView.sql" />
+    <Build Include="DeltaView\Tables\HighWatermarkConfig.sql" />
+    <Build Include="DeltaView\Stored Procedures\usp_HighWatermarkManager.sql" />
+    <Build Include="DeltaView\Stored Procedures\UpdateMVIPersonSIDPatientPersonSID_POCTestOnly_ADHOC_COMPARE.sql" />
+    <Build Include="App\Stored Procedures\VCL_CaringLettersTrends.sql" />
+    <Build Include="App\Stored Procedures\p_VCL_CaringLetterDates.sql" />
+    <Build Include="App\Stored Procedures\ORM_OPPEDueNinetyDays_LSV.sql" />
+    <Build Include="App\Stored Procedures\SUD_TobaccoUD_SummaryStats_PBI.sql" />
+    <Build Include="Security\OMHSP_FY24Q3.sql" />
+    <Build Include="SUD\Views\TobaccoScreens.sql" />
+    <Build Include="App\Stored Procedures\VCL_CaringLettersWriteback.sql" />
+    <Build Include="App\Stored Procedures\VCL_CaringLettersMailingList.sql" />
+    <Build Include="App\Stored Procedures\VCL_CaringLettersDetails.sql" />
+    <Build Include="Dflt\Functions\ufn_FormatName.sql" />
+    <Build Include="App\Stored Procedures\ORM_TotalPatientReport_LSV.sql" />
+    <Build Include="App\Stored Procedures\COMPACT_ContactCounts_PBI.sql" />
+    <Build Include="ORM\Tables\HospicePalliativeCare.sql" />
+    <Build Include="Code\Stored Procedures\ORM_HospicePalliativeCare.sql" />
+    <Build Include="DeltaView\Tables\SStaffSID_POCTestOnly.sql" />
+    <Build Include="DeltaView\Tables\SStaff_POCTestOnly.sql" />
+    <Build Include="DeltaView\Tables\CommonInpatientRecords_002_POCTestOnly.sql" />
+    <Build Include="DeltaView\Stored Procedures\Present_SStaff_POCTestOnly.sql" />
+    <Build Include="App\Stored Procedures\COMPACT_IVC_PBI.sql" />
+    <Build Include="Common\Tables\PBIReportsCohort.sql" />
+    <Build Include="Code\Stored Procedures\Common_PBIReportsCohort.sql" />
+    <Build Include="BHIP\Tables\MHTCAssignment_HelpDesk_PCMM.sql" />
+    <Build Include="BHIP\Tables\MHTCAssignment_HelpDesk_Note.sql" />
+    <Build Include="BHIP\Tables\MHTCAssignment_HelpDesk_HF.sql" />
+    <Build Include="BHIP\Tables\MHTCAssignment_HelpDesk.sql" />
+    <Build Include="LookUp\Views\ZipState.sql" />
+    <Build Include="LookUp\Views\StateCountry.sql" />
+    <Build Include="PRF\Tables\ActiveCatII_Patients.sql" />
+    <Build Include="PRF\Tables\ActiveCatII_Counts.sql" />
+    <Build Include="Code\Stored Procedures\PRF_ActiveCatII.sql" />
+    <Build Include="Present\Tables\OverdueScreens.sql" />
+    <Build Include="Code\Stored Procedures\Present_OverdueScreens.sql" />
+    <Build Include="App\Stored Procedures\PRF_CatIIFlags_Patients.sql" />
+    <Build Include="Config\Tables\REACH_ORNLOutput.sql" />
+    <Build Include="Config\Tables\Risk_Variable.sql" />
+    <Build Include="Config\Tables\Risk_VariableClinicalConcepts.sql" />
+    <Build Include="Config\Tables\Risk_VariableValues.sql" />
+    <Build Include="VBA\Tables\MSTClaimsCohort.sql" />
+    <Build Include="VBA\Tables\MSTClaimsEvents.sql" />
+    <Build Include="VBA\Tables\MSTClaimsNotes.sql" />
+    <Build Include="Code\Stored Procedures\VBA_MSTClaims.sql" />
+    <Build Include="App\Stored Procedures\p_PRF_CatII.sql" />
+    <Build Include="App\Stored Procedures\VBA_MSTClaims_Events_LSV.sql" />
+    <Build Include="App\Stored Procedures\VBA_MSTClaims_LSV.sql" />
+    <Build Include="App\Stored Procedures\VBA_MSTClaims_Notes_LSV.sql" />
+    <Build Include="Code\Stored Procedures\LookUpList_BHL.sql" />
+    <Build Include="Code\Stored Procedures\Reach_RiskScore.sql" />
+    <Build Include="Code\Stored Procedures\SUD_AWInpatient.sql" />
+    <Build Include="REACH\Tables\Predictors.sql" />
+    <Build Include="REACH\Tables\RiskScore.sql" />
+    <Build Include="REACH\Tables\Stage_RiskScore.sql" />
+    <Build Include="REACH\Stored Procedures\ORNL_Variable_Match.sql" />
+    <Build Include="SUD\Tables\AW_Inpatient_Metrics.sql" />
+    <Build Include="Stage\Tables\MasterPatientVistA_Patient.sql" />
+    <Build Include="Stage\Tables\MasterPatientVistA_Contact.sql" />
+    <Build Include="Stage\Tables\MasterPatientMill_Patient.sql" />
+    <Build Include="Stage\Tables\MasterPatientMill_Contact.sql" />
+    <Build Include="Common\Tables\MasterPatient_Patient.sql" />
+    <Build Include="Code\Stored Procedures\Stage_MasterPatientVistA_Patient.sql" />
+    <Build Include="Code\Stored Procedures\Stage_MasterPatientVistA_Contact.sql" />
+    <Build Include="Code\Stored Procedures\Stage_MasterPatientMill_Patient.sql" />
+    <Build Include="Code\Stored Procedures\Stage_MasterPatientMill_Contact.sql" />
+    <Build Include="Code\Stored Procedures\Common_MasterPatient.sql" />
+    <Build Include="Code\Stored Procedures\Common_MasterPatient_Contact.sql" />
+    <Build Include="Common\Tables\MasterPatient_Contact.sql" />
+    <Build Include="App\Stored Procedures\PRF_CatII_Counts.sql" />
+    <Build Include="App\Stored Procedures\MBC_PatientContact_LSV.sql" />
+    <Build Include="Synonyms\synPDW_ORNL_SDoH.sql" />
+    <Build Include="PDE_Daily\Tables\FutureAppts.sql" />
+    <Build Include="App\Stored Procedures\PDE_FutureApptsSub.sql" />
+    <Build Include="Synonyms\synCDWWork3.sql" />
+    <Build Include="PRF\Tables\Behavioral_EpisodeDates.sql" />
+    <Build Include="Code\Stored Procedures\PRF_Behavioral_Episodes.sql" />
+    <Build Include="Common\Views\MasterPatient_VM.sql" />
+    <Build Include="OracleH_QI\Tables\PossibleMHVisits.sql" />
+    <Build Include="Code\Stored Procedures\OracleH_QI_PossibleMHVisits.sql" />
+    <Build Include="App\Stored Procedures\OracleH_QI_PossibleMHVisits_LSV.sql" />
+    <Build Include="Config\Tables\Risk_VariableInteractions.sql" />
+    <Build Include="REACH\Tables\ClinicalSignals_Monthly.sql" />
+    <Build Include="Config\Tables\REACH_ClinicalSignalsNightly.sql" />
+    <Build Include="App\Stored Procedures\p_NLP.sql" />
+    <Build Include="Config\Tables\AWinpatient_Readmission_CPT.sql" />
+    <Build Include="Config\Tables\AWinpatient_Readmission_Categories.sql" />
+    <Build Include="App\Stored Procedures\SUD_AWInpatient.sql" />
+    <Build Include="App\Stored Procedures\p_SUD_AWInpatient_FYQ.sql" />
+    <Build Include="PDSI\Tables\APDEM1.sql" />
+    <Build Include="Present\Tables\BHIP_Assessments.sql" />
+    <Build Include="Code\Stored Procedures\Reach_ClinicalSignals.sql" />
+    <Build Include="Code\Stored Procedures\Present_BHIPAssessments.sql" />
+    <Build Include="App\Stored Procedures\SUD_CaseFinderSuiOD_PBI.sql" />
+    <Build Include="App\Stored Procedures\SUD_CaseFinderSUDRiskFactors_PBI.sql" />
+    <Build Include="App\Stored Procedures\SUD_CaseFinderSUDDxTypes_PBI.sql" />
+    <Build Include="App\Stored Procedures\SUD_CaseFinderSDH_PBI.sql" />
+    <Build Include="App\Stored Procedures\SUD_CaseFinderRx_PBI.sql" />
+    <Build Include="App\Stored Procedures\SUD_CaseFinderReportMode_PBI.sql" />
+    <Build Include="App\Stored Procedures\SUD_CaseFinderPosDrugScreen_PBI.sql" />
+    <Build Include="App\Stored Procedures\SUD_CaseFinderEBPs_PBI.sql" />
+    <Build Include="BHIP\Tables\Templates.sql" />
+    <Build Include="Code\Stored Procedures\BHIP_Templates.sql" />
+    <Build Include="REACH\Tables\ClinicalSignals_Nightly.sql" />
+    <Build Include="OMHSP_Standard\Views\vwSuicideOverdoseEvent_FacilityReported.sql" />
+    <Build Include="App\Stored Procedures\COMPACT_Providers_PBI.sql" />
+    <Build Include="Code\Stored Procedures\PDE_PatientReport.sql" />
+    <Build Include="Code\Stored Procedures\LookUpList_ICD10PCS.sql" />
+    <Build Include="Code\Stored Procedures\LookUpList_CPT.sql" />
+    <Build Include="REACH\Tables\RiskScoreHistoric.sql" />
+    <Build Include="Code\Stored Procedures\Reach_RiskScorePublish.sql" />
+    <Build Include="LookUp\Tables\CPT.sql" />
+    <Build Include="Code\Stored Procedures\LookUp_CPT.sql" />
+    <Build Include="Code\Stored Procedures\LookUp_ICD10Proc.sql" />
+    <Build Include="LookUp\Tables\ICD10Proc.sql" />
+    <Build Include="Code\Stored Procedures\CaringLetters_Mailings.sql" />
+    <Build Include="Code\Stored Procedures\CaringLetters_VCL_Trends.sql" />
+    <Build Include="Code\Stored Procedures\CaringLetters_VCL.sql" />
+    <Build Include="Code\Stored Procedures\CaringLetters_HRF_Trends.sql" />
+    <Build Include="Code\Stored Procedures\CaringLetters_HRF.sql" />
+    <Build Include="Security\CaringLetters.sql" />
+    <Build Include="CaringLetters\Tables\VCL_Writeback.sql" />
+    <Build Include="CaringLetters\Tables\VCL_Trends.sql" />
+    <Build Include="CaringLetters\Tables\VCL_PreEmptiveOptOuts.sql" />
+    <Build Include="CaringLetters\Tables\VCL_NCOA_UpdateAddress.sql" />
+    <Build Include="CaringLetters\Tables\VCL_NCOA_BadAddress.sql" />
+    <Build Include="CaringLetters\Tables\VCL_Mailings.sql" />
+    <Build Include="CaringLetters\Tables\VCL_Cohort.sql" />
+    <Build Include="CaringLetters\Tables\HRF_Writeback.sql" />
+    <Build Include="CaringLetters\Tables\HRF_Trends.sql" />
+    <Build Include="CaringLetters\Tables\HRF_NCOA_UpdateAddress.sql" />
+    <Build Include="CaringLetters\Tables\HRF_NCOA_BadAddress_SecureDestroy.sql" />
+    <Build Include="CaringLetters\Tables\HRF_NCOA_BadAddress_DoNotSend.sql" />
+    <Build Include="CaringLetters\Tables\HRF_Mailings.sql" />
+    <Build Include="CaringLetters\Tables\HRF_Cohort.sql" />
+    <Build Include="BHIP\Tables\Risk_PBI.sql" />
+    <Build Include="BHIP\Tables\Panel_PBI.sql" />
+    <Build Include="BHIP\Tables\MissedAppointments_PBI.sql" />
+    <Build Include="BHIP\Tables\Consults_PBI.sql" />
+    <Build Include="App\Views\BHIPRisk_PBI.sql" />
+    <Build Include="App\Views\BHIPPanel_PBI.sql" />
+    <Build Include="App\Views\BHIPMissedAppointments_PBI.sql" />
+    <Build Include="App\Views\BHIPConsults_PBI.sql" />
+    <Build Include="Code\Stored Procedures\BHIP_Panel_PBI.sql" />
+    <Build Include="Code\Stored Procedures\BHIP_Consults_PBI.sql" />
+    <Build Include="Security\PBIReports.sql" />
+    <Build Include="PBIReports\Tables\Screening.sql" />
+    <Build Include="PBIReports\Tables\RiskFlags.sql" />
+    <Build Include="PBIReports\Tables\ReportType.sql" />
+    <Build Include="App\Views\PBIReports_Screening.sql" />
+    <Build Include="App\Views\PBIReports_RiskFlags.sql" />
+    <Build Include="App\Views\PBIReports_ReportType.sql" />
+    <Build Include="App\Views\PBIReports_Providers.sql" />
+    <Build Include="App\Views\PBIReports_PatientTimeline.sql" />
+    <Build Include="App\Views\PBIReports_Medications.sql" />
+    <Build Include="App\Views\PBIReports_Inpatient.sql" />
+    <Build Include="App\Views\PBIReports_Diagnosis.sql" />
+    <Build Include="App\Views\PBIReports_CommunityCare.sql" />
+    <Build Include="App\Views\PBIReports_Cohort.sql" />
+    <Build Include="App\Views\PBIReports_Appointments.sql" />
+    <Build Include="App\Stored Procedures\p_OracleH_QI_MissingVisit_Person.sql" />
+    <Build Include="LookUp\Tables\ICD10_VerticalSID.sql" />
+    <Build Include="LookUp\Tables\ICD10.sql" />
+    <Build Include="LookUp\Views\ICD10_Vertical.sql" />
+    <Build Include="Code\Stored Procedures\LookUp_ICD10.sql" />
+    <Build Include="LookUp\Tables\Lab.sql" />
+    <Build Include="Code\Stored Procedures\Lookup_Lab.sql" />
+    <Build Include="LookUp\Tables\TreatingSpecialty.sql" />
+    <Build Include="Code\Stored Procedures\Lookup_TreatingSpecialty.sql" />
+    <Build Include="Security\IB.sql" />
+    <Build Include="COMPACT\Tables\ORB_Copay_Review.sql" />
+    <Build Include="COMPACT\Tables\ORB_Copay_Cancel.sql" />
+    <Build Include="Code\Stored Procedures\COMPACT_ORB_Copay.sql" />
+    <Build Include="App\Stored Procedures\ORM_COMPACT_LSV.sql" />
+    <Build Include="LookUp\Tables\StopCode.sql" />
+    <Build Include="LookUp\Tables\NationalDrug.sql" />
+    <Build Include="Code\Stored Procedures\Lookup_StopCode.sql" />
+    <Build Include="Code\Stored Procedures\LookUp_NationalDrug.sql" />
+    <Build Include="Config\Tables\NLP_3ST_TIUStandardTitle.sql" />
+    <Build Include="Config\Tables\NLP_3ST_Terms.sql" />
+    <Build Include="Config\Tables\NLP_3ST_subclass_labels.sql" />
+    <Build Include="App\Views\SUDCaseFinder_Cohort_PBI.sql" />
+    <Build Include="Inpatient\Views\BedSection.sql" />
+    <Build Include="Code\Stored Procedures\Inpatient_BedSection.sql" />
+    <Build Include="Common\Tables\InpatientRecords.sql" />
+    <Build Include="LookUp\Views\Stapa.sql" />
+    <Build Include="Code\Stored Procedures\SUD_Templates.sql" />
+    <Build Include="Synonyms\synLibrary.sql" />
+    <Build Include="Security\Library.sql" />
+    <Build Include="SUD\Tables\Templates.sql" />
+    <Build Include="App\Stored Procedures\VCL_LMS_MailingList.sql" />
+    <Build Include="CaringLetters\Tables\VCL_LMS_Writeback.sql" />
+    <Build Include="CaringLetters\Tables\VCL_LMS_Cohort.sql" />
+    <Build Include="App\Stored Procedures\VCL_LMS_Writeback.sql" />
+    <Build Include="App\Stored Procedures\VCL_LMS_Details.sql" />
+    <Build Include="Security\Basecamp.sql" />
+    <Build Include="ORM\Tables\NewOpioidNoRiskReview.sql" />
+    <Build Include="Code\Stored Procedures\ORM_NewOpioidNoRiskReview.sql" />
+    <Build Include="App\Views\SUDCaseFinderSuiODTypes_PBI.sql" />
+    <Build Include="App\Views\SUDCaseFinderSUDRiskFactors_PBI.sql" />
+    <Build Include="App\Views\SUDCaseFinderSDHTypes_PBI.sql" />
+    <Build Include="App\Views\SUDCaseFinderProviders_PBI.sql" />
+    <Build Include="App\Views\SUDCaseFinderMedTypes_PBI.sql" />
+    <Build Include="App\Views\SUDCaseFinderLabGroups_PBI.sql" />
+    <Build Include="App\Views\SUDCaseFinderEBPTypes_PBI.sql" />
+    <Build Include="App\Views\PBIReports_TestPatients.sql" />
+    <Build Include="App\Stored Procedures\p_ORM_NewOpioidNoRiskReview_Prescriber.sql" />
+    <Build Include="App\Stored Procedures\ORM_NewOpioidNoRiskReview_LSV.sql" />
+    <Build Include="OMHSP_Standard\Tables\HealthFactorSuicPrev.sql" />
+    <Build Include="Code\Stored Procedures\OMHSP_Standard_HealthFactorSuicPrev.sql" />
+    <Build Include="OMHSP_Standard\Tables\SafetyPlan.sql" />
+    <Build Include="Code\Stored Procedures\OMHSP_Standard_SafetyPlan.sql" />
+    <Build Include="OMHSP_Standard\Tables\SBOR.sql" />
+    <Build Include="Code\Stored Procedures\OMHSP_Standard_SBOR.sql" />
+    <Build Include="Present\Tables\HomestationQuarterly.sql" />
+    <Build Include="Present\Tables\HomestationMonthly.sql" />
+    <Build Include="Code\Stored Procedures\Present_HomestationMonthly.sql" />
+    <Build Include="Present\Tables\ActivePatient.sql" />
+    <Build Include="Present\Views\StationAssignments.sql" />
+    <Build Include="Present\Views\SPatient.sql" />
+    <Build Include="Code\Stored Procedures\Present_ActivePatient.sql" />
+    <Build Include="Security\Platform.sql" />
+    <Build Include="REACH\Tables\QuestionStatus.sql" />
+    <Build Include="REACH\Tables\HealthFactors.sql" />
+    <Build Include="REACH\Tables\ActivePatient.sql" />
+    <Build Include="Present\Tables\UDSLabResults.sql" />
+    <Build Include="Present\Tables\Medications.sql" />
+    <Build Include="Present\Tables\DiagnosisDate.sql" />
+    <Build Include="Present\Tables\Diagnosis.sql" />
+    <Build Include="ORM\Tables\RiskScore.sql" />
+    <Build Include="ORM\Tables\OpioidHistory.sql" />
+    <Build Include="Code\Stored Procedures\Reach_HealthFactors.sql" />
+    <Build Include="Code\Stored Procedures\Reach_ActivePatient.sql" />
+    <Build Include="Code\Stored Procedures\Present_UDSLabResults.sql" />
+    <Build Include="Code\Stored Procedures\Present_Medications.sql" />
+    <Build Include="Code\Stored Procedures\Present_Diagnosis.sql" />
+    <Build Include="Code\Stored Procedures\ORM_RiskVariables.sql" />
+    <Build Include="Code\Stored Procedures\ORM_RiskScore.sql" />
+    <Build Include="Code\Stored Procedures\ORM_OpioidHistory.sql" />
+    <Build Include="CaringLetters\Tables\VCL_PatientMapping.sql" />
+    <Build Include="Code\Stored Procedures\CaringLetters_VCL_PatientMapping.sql" />
+    <Build Include="Code\Stored Procedures\CaringLetters_VCL_LMS.sql" />
+    <Build Include="Common\Views\MasterPatient.sql" />
+    <Build Include="Common\Tables\MVIPerson_NoEHR.sql" />
+    <Build Include="Code\Stored Procedures\Common_MVIPerson_NoEHR.sql" />
+    <Build Include="App\Stored Procedures\ORM_NewOpioidNoRiskReview_Subscription.sql" />
+    <Build Include="CaringLetters\Tables\VCL_LMS_Trends.sql" />
+    <Build Include="Code\Stored Procedures\CaringLetters_VCL_LMS_Trends.sql" />
+    <Build Include="App\Tables\UserPermissions.sql" />
+    <Build Include="App\Tables\UserDefaultParameters.sql" />
+    <Build Include="Code\Stored Procedures\App_UserParameters.sql" />
+    <Build Include="App\Stored Procedures\p_Sta6aIDDefault_PBI.sql" />
+    <Build Include="App\Stored Procedures\VCL_LMS_Trends.sql" />
+    <Build Include="App\Stored Procedures\p_VCL_LMS_Dates.sql" />
+    <Build Include="App\Views\vwOutpatWorkload_StatusShowed_PastYear.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="..\..\Common\DACPAC\OMHSP_PERC_Core.dacpac">
+      <HintPath>..\..\Common\DACPAC\OMHSP_PERC_Core.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>OMHSP_PERC_Core</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\..\Common\DACPAC\CDWWork.dacpac">
+      <HintPath>..\..\Common\DACPAC\CDWWork.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>CDWWork</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\..\Common\DACPAC\CDWWork2.dacpac">
+      <HintPath>..\..\Common\DACPAC\CDWWork2.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>CDWWork2</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\..\Common\DACPAC\OMHSP_PERC_Cerner.dacpac">
+      <HintPath>..\..\Common\DACPAC\OMHSP_PERC_Cerner.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>OMHSP_PERC_Cerner</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\..\Common\DACPAC\CDW02.dacpac">
+      <HintPath>..\..\Common\DACPAC\CDW02.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>CDW02</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\..\Common\DACPAC\CDWLocal.dacpac">
+      <HintPath>..\..\Common\DACPAC\CDWLocal.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>CDWLocal</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\msdb.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\msdb.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>msdb</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+    <ArtifactReference Include="..\..\Common\DACPAC\CDWWork3.dacpac">
+      <HintPath>..\..\Common\DACPAC\CDWWork3.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>CDWWork3</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\..\Common\DACPAC\OMHSP_PERC_PDW.dacpac">
+      <HintPath>..\..\Common\DACPAC\OMHSP_PERC_PDW.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>OMHSP_PERC_PDW</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\..\Common\DACPAC\OMHSP_Partners_NEPEC.dacpac">
+      <HintPath>..\..\Common\DACPAC\OMHSP_Partners_NEPEC.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>OMHSP_Partners_NEPEC</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\..\Common\DACPAC\OMHSP_PERC_Archive.dacpac">
+      <HintPath>..\..\Common\DACPAC\OMHSP_PERC_Archive.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>OMHSP_PERC_Archive</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\..\Common\DACPAC\OMHSP_PERC_CoreLog.dacpac">
+      <HintPath>..\..\Common\DACPAC\OMHSP_PERC_CoreLog.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>OMHSP_PERC_CoreLog</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="CDW02">
+      <DefaultValue>CDW02</DefaultValue>
+      <Value>$(SqlCmdVar__13)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="CDWLocal">
+      <DefaultValue>CDWLocal</DefaultValue>
+      <Value>$(SqlCmdVar__14)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="CDWWork">
+      <DefaultValue>CDWWork</DefaultValue>
+      <Value>$(SqlCmdVar__9)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="CDWWork2">
+      <DefaultValue>CDWWork2</DefaultValue>
+      <Value>$(SqlCmdVar__10)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="CDWWork3">
+      <DefaultValue>CDWWork3</DefaultValue>
+      <Value>$(SqlCmdVar__15)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="OMHSP_Partners_NEPEC">
+      <DefaultValue>OMHSP_Partners_NEPEC</DefaultValue>
+      <Value>$(SqlCmdVar__17)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="OMHSP_PERC_Archive">
+      <DefaultValue>OMHSP_PERC_Archive</DefaultValue>
+      <Value>$(SqlCmdVar__18)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="OMHSP_PERC_Cerner">
+      <DefaultValue>OMHSP_PERC_CernerTest</DefaultValue>
+      <Value>$(SqlCmdVar__12)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="OMHSP_PERC_Core">
+      <DefaultValue>OMHSP_PERC_CoreTest</DefaultValue>
+      <Value>$(SqlCmdVar__8)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="OMHSP_PERC_CoreLog">
+      <DefaultValue>OMHSP_PERC_CoreDev</DefaultValue>
+      <Value>$(SqlCmdVar__19)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="OMHSP_PERC_PDW">
+      <DefaultValue>OMHSP_PERC_PDW</DefaultValue>
+      <Value>$(SqlCmdVar__16)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="OMHSP_PERC_PDWDev">
+      <DefaultValue>OMHSP_PERC_PDWDev</DefaultValue>
+      <Value>$(SqlCmdVar__3)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="SPV">
+      <DefaultValue>SPV</DefaultValue>
+      <Value>$(SqlCmdVar__6)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="SPV2">
+      <DefaultValue>SPV2</DefaultValue>
+      <Value>$(SqlCmdVar__7)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="tempdb">
+      <DefaultValue>tempdb</DefaultValue>
+      <Value>$(SqlCmdVar__2)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Snapshots\PERC.CDS.DB_20210803_16-41-14.dacpac" />
+  </ItemGroup>
+</Project>

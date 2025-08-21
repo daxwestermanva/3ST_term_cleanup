@@ -1,0 +1,2 @@
+﻿CREATE USER [uCDW_AllDB_Reader] FOR LOGIN [VHAMASTER\CDW_AllDB_Reader];
+

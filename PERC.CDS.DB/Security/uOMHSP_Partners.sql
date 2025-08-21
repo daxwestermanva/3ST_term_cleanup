@@ -1,0 +1,2 @@
+﻿CREATE USER [uOMHSP_Partners] FOR LOGIN [VHAMASTER\OMHSP_Partners];
+

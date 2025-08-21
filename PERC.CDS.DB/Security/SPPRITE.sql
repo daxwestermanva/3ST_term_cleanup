@@ -1,0 +1,19 @@
+﻿CREATE SCHEMA [SPPRITE]
+    AUTHORIZATION [uOMHSP_PERC];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

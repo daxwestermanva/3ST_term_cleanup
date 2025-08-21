@@ -1,0 +1,5 @@
+﻿CREATE SCHEMA [Outpat]
+    AUTHORIZATION [uOMHSP_PERC];
+
+
+

@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [StaffSub]
+    AUTHORIZATION [uOMHSP_PERC];
+

@@ -1,0 +1,5 @@
+﻿CREATE SCHEMA [Chem]
+    AUTHORIZATION [uOMHSP_PERC];
+
+
+

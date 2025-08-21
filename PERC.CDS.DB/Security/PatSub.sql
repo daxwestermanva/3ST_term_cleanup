@@ -1,0 +1,5 @@
+﻿CREATE SCHEMA [PatSub]
+    AUTHORIZATION [uOMHSP_PERC];
+
+
+

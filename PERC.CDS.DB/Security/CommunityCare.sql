@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [CommunityCare]
+    AUTHORIZATION [uOMHSP_PERC];
+

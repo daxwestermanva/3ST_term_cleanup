@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [RiskScore]
+    AUTHORIZATION [uOMHSP_PERC];
+

@@ -1,0 +1,5 @@
+﻿CREATE SCHEMA [NDim]
+    AUTHORIZATION [uOMHSP_PERC];
+
+
+

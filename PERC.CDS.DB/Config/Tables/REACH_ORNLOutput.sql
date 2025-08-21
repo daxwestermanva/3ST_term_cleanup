@@ -1,0 +1,10 @@
+﻿CREATE TABLE [Config].[REACH_ORNLOutput] (
+    [Strat] NVARCHAR (255) NULL,
+    [theta] FLOAT (53)     NULL
+);
+
+
+GO
+CREATE CLUSTERED COLUMNSTORE INDEX [CCIX_REACH_ORNLOutput]
+    ON [Config].[REACH_ORNLOutput];
+

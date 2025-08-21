@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Pharm]
+    AUTHORIZATION [uOMHSP_PERC];
+

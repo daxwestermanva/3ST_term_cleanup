@@ -1,0 +1,9 @@
+﻿CREATE SCHEMA [SPT]
+    AUTHORIZATION [uOMHSP_PERC];
+
+
+
+
+
+
+

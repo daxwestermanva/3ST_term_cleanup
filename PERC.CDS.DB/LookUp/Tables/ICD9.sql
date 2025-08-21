@@ -1,0 +1,131 @@
+﻿CREATE TABLE [LookUp].[ICD9] (
+    [ICD9SID]                BIGINT         NOT NULL,
+    [Sta3n]                  SMALLINT       NOT NULL,
+    [ICD9Description]        VARCHAR (8000) NULL,
+    [ICD9Code]               VARCHAR (100)  NULL,
+    [ALCdx_poss]             SMALLINT       NULL,
+    [AmphetamineUseDisorder] SMALLINT       NULL,
+    [AUD]                    SMALLINT       NULL,
+    [AUD_ORM]                SMALLINT       NULL,
+    [Benzo_AD_MHDx]          SMALLINT       NULL,
+    [BIPOLAR]                SMALLINT       NULL,
+    [Cannabis]               SMALLINT       NULL,
+    [CannabisUD_HallucUD]    SMALLINT       NULL,
+    [COCNdx]                 SMALLINT       NULL,
+    [CocaineUD_AmphUD]       SMALLINT       NULL,
+    [DEMENTIA]               SMALLINT       NULL,
+    [DEPRESS]                SMALLINT       NULL,
+    [DEPRESS_EBP]            SMALLINT       NULL,
+    [EH_AIDS]                SMALLINT       NULL,
+    [EH_AlcDep]              SMALLINT       NULL,
+    [EH_ALCOHOL]             SMALLINT       NULL,
+    [EH_ARRHYTH]             SMALLINT       NULL,
+    [EH_BLANEMIA]            SMALLINT       NULL,
+    [EH_CHRNPULM]            SMALLINT       NULL,
+    [EH_COAG]                SMALLINT       NULL,
+    [EH_COMDIAB]             SMALLINT       NULL,
+    [EH_DefANEMIA]           SMALLINT       NULL,
+    [EH_DEPRESS]             SMALLINT       NULL,
+    [EH_DRUG]                SMALLINT       NULL,
+    [EH_ELECTRLYTE]          SMALLINT       NULL,
+    [EH_HEART]               SMALLINT       NULL,
+    [EH_HYPERTENS]           SMALLINT       NULL,
+    [EH_HYPOTHY]             SMALLINT       NULL,
+    [EH_LIVER]               SMALLINT       NULL,
+    [EH_Lymphoma]            SMALLINT       NULL,
+    [EH_METCANCR]            SMALLINT       NULL,
+    [EH_NMETTUMR]            SMALLINT       NULL,
+    [EH_OBESITY]             SMALLINT       NULL,
+    [EH_OpiDep]              SMALLINT       NULL,
+    [EH_OTHNEURO]            SMALLINT       NULL,
+    [EH_PARALYSIS]           SMALLINT       NULL,
+    [EH_PEPTICULC]           SMALLINT       NULL,
+    [EH_PERIVALV]            SMALLINT       NULL,
+    [EH_PSYCHOSES]           SMALLINT       NULL,
+    [EH_PULMCIRC]            SMALLINT       NULL,
+    [EH_RENAL]               SMALLINT       NULL,
+    [EH_RHEUMART]            SMALLINT       NULL,
+    [EH_SolidTumorNoMet]     SMALLINT       NULL,
+    [EH_UNCDIAB]             SMALLINT       NULL,
+    [EH_VALVDIS]             SMALLINT       NULL,
+    [EH_WEIGHTLS]            SMALLINT       NULL,
+    [Homeless]               SMALLINT       NULL,
+    [MDD]                    SMALLINT       NULL,
+    [MedIndAntiDepressant]   SMALLINT       NULL,
+    [MedIndBenzodiazepine]   SMALLINT       NULL,
+    [MHSUDdx_poss]           SMALLINT       NULL,
+    [Nicdx_poss]             SMALLINT       NULL,
+    [OpioidOverdose]         SMALLINT       NULL,
+    [Osteoporosis]           SMALLINT       NULL,
+    [OtherMH]                SMALLINT       NULL,
+    [OUD]                    SMALLINT       NULL,
+    [Psych]                  SMALLINT       NULL,
+    [PTSD]                   SMALLINT       NULL,
+    [SAE_Acet]               SMALLINT       NULL,
+    [SAE_Falls]              SMALLINT       NULL,
+    [SAE_OtherAccident]      SMALLINT       NULL,
+    [SAE_OtherDrug]          SMALLINT       NULL,
+    [SAE_sed]                SMALLINT       NULL,
+    [SAE_Vehicle]            SMALLINT       NULL,
+    [Schiz]                  SMALLINT       NULL,
+    [SedateIssue]            SMALLINT       NULL,
+    [SedativeUseDisorder]    SMALLINT       NULL,
+    [SleepApnea]             SMALLINT       NULL,
+    [SMI]                    SMALLINT       NULL,
+    [SUD_NoOUD_NoAUD]        SMALLINT       NULL,
+    [OtherSUD_RiskModel]     SMALLINT       NULL,
+    [SUDdx_poss]             SMALLINT       NULL,
+    [Suicide]                SMALLINT       NULL,
+    [SuicideAttempt]         SMALLINT       NULL,
+    [Tourette]               SMALLINT       NULL,
+    [Huntington]             SMALLINT       NULL,
+    [MHorMedInd_AD]          SMALLINT       NULL,
+    [MHorMedInd_Benzo]       SMALLINT       NULL,
+    [REACH_attempt]          SMALLINT       NULL,
+    [REACH_arth]             SMALLINT       NULL,
+    [REACH_bipoli]           SMALLINT       NULL,
+    [REACH_ca_head]          SMALLINT       NULL,
+    [REACH_chronic]          SMALLINT       NULL,
+    [REACH_dep]              SMALLINT       NULL,
+    [REACH_dm]               SMALLINT       NULL,
+    [REACH_sle]              SMALLINT       NULL,
+    [REACH_sud]              SMALLINT       NULL,
+    [REACH_othanxdis]        SMALLINT       NULL,
+    [REACH_persond]          SMALLINT       NULL,
+    [SUD_Remission_Dx]       SMALLINT       NULL,
+    [SUD_Active_Dx]          SMALLINT       NULL,
+    [LongQTSyndrome_Dx]      SMALLINT       NULL,
+    [PDE_OverdoseAndPoison]  SMALLINT       NULL,
+    [PDE_ExternalCauses]     SMALLINT       NULL,
+    [PDE_SuicideRelated]     SMALLINT       NULL,
+    [TBI_Dx]                 SMALLINT       NULL,
+    [ChronicResp_Dx]         SMALLINT       NULL,
+    [WRV_MenopausalDisorder] SMALLINT       NULL,
+    [WRV_MenstrualDisorder]  SMALLINT       NULL,
+    [WRV_NonViablePregnancy] SMALLINT       NULL,
+    [WRV_Pregnancy]          SMALLINT       NULL,
+    [WRV_EatingDisorder]     SMALLINT       NULL,
+    [Other_MH_STORM]         SMALLINT       NULL
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+
+
+
+GO
+CREATE CLUSTERED INDEX [CIX_LookUp_ICD9SID]
+    ON [LookUp].[ICD9]([ICD9SID] ASC) WITH (DATA_COMPRESSION = PAGE);
+

@@ -1,0 +1,2 @@
+﻿CREATE USER [uBISL_BASECampEXE] FOR LOGIN [VHAMaster\BISL_BaseCampExe];
+

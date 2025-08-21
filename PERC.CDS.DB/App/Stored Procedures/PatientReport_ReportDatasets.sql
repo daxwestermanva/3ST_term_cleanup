@@ -1,0 +1,183 @@
+﻿
+
+-- =============================================
+-- Author:		Tolessa Gurmessa
+-- Create date: <5/14/2024>
+-- Description:	Adopted from Marcos Lau's <App.Diabetes_ReportDatasets>
+--
+-- 2024-06-05  CW  Adding Riskcategory = 12 to the procedure
+-- 2024-12-02  TG  Added Long Term Opioid Therapy cohort
+
+-- =============================================
+CREATE PROCEDURE [App].[PatientReport_ReportDatasets]
+	@Report int  
+	,@Dataset int  
+	,@Station varchar(1000) 
+	,@User varchar(100)
+	,@NoPHI as varchar(10)
+	,@GroupType as varchar(100)
+	
+
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	IF @Report <> 1
+		SET @Report = 0
+	;
+
+    IF @Report = 0 
+		SELECT 'Hello' as RowLabel, '0' as RowValue, 0 as RowOrder
+ ELSE
+ 
+ --declare @Report int  =1
+	--declare @Dataset int = 3
+	--declare @Station varchar(1000) = '640'
+	--declare  @User varchar(100) = 'VHA21\vhapalgurmet'
+	--declare @NoPHI as varchar(10)=0
+	--declare @GroupType as varchar(20)= '-5'
+ 
+ IF @Dataset = 1 -- GroupType Parameter 
+	BEGIN
+	
+		SELECT 'Station Level' as RowLabel, '-5'  as RowValue, 1 as RowOrder
+		UNION 
+
+		SELECT DISTINCT GroupType as RowLabel, GroupID  as RowValue, 2 as RowOrder
+		FROM [Present].[GroupAssignments_STORM] as a
+        WHERE a.ChecklistID in (SELECT value FROM string_split(@Station ,',')		) 
+        AND GroupID <>'-5'
+		ORDER BY RowOrder, RowLabel
+
+ END
+
+
+  ELSE IF @Dataset = 2 -- Provider Parameter 
+	BEGIN
+
+			SELECT DISTINCT
+	         CASE WHEN @NoPHI = 1 THEN  0 ELSE isnull (ProviderSID,-1) END RowValue
+	        ,CASE WHEN @NoPHI = 1 THEN 'Dr Zhivago' 
+		          ELSE ProviderName END RowLabel, 2 AS RowOrder
+	         ,0 as prescriberorder
+	         ,CASE WHEN @NoPHI = 1 THEN 'Fake' ELSE ProviderName END as providertypedropdown
+           FROM [Present].[GroupAssignments_STORM] as a
+           WHERE @GroupType <> '-5' 
+	       AND a.ChecklistID in (SELECT value FROM string_split(@Station ,',')		) 
+		   AND GroupID IN (@GroupType)
+	     
+		  
+            UNION
+	
+	
+             SELECT DISTINCT 0 as  RowValue
+	         ,'All Providers'  as  Rowlabel, 1 AS RowOrder
+	         ,0 as PrescriberOrder
+	         ,'All Providers' as  ProviderTypeDropDown 
+            WHERE @GroupType = '-5' 
+            ORDER BY RowOrder, RowLabel	
+   END 
+
+
+  ELSE IF @Dataset = 3 -- RiskGroup 
+	BEGIN
+		SELECT 'OUD Dx, No Opioid Rx (Elevated Risk)' AS RowLabel, 5 AS RowValue
+				FROM [ORM].[PatientDetails]
+				WHERE Riskcategory = 5 --check if this count matches what's on the old report.
+				UNION 
+		SELECT 'Very High - Opioid Rx' AS RowLabel, 4 AS RowValue
+				FROM [ORM].[PatientDetails]
+				WHERE Riskcategory = 4
+				UNION
+		SELECT 'Very High - Active Status, No Pills on Hand' AS RowLabel, 10 AS RowValue
+				FROM [ORM].[PatientDetails]
+				WHERE Riskcategory = 10
+				UNION
+		SELECT 'Very High - Recently Discontinued' AS RowLabel, 9 AS RowValue
+				FROM [ORM].[PatientDetails]
+				WHERE Riskcategory = 9
+				UNION
+		SELECT 'High - Opioid Rx' AS RowLabel, 3 AS RowValue
+				FROM [ORM].[PatientDetails]
+				WHERE Riskcategory = 3
+				UNION
+		SELECT 'Medium - Opioid Rx' AS RowLabel, 2 AS RowValue
+				FROM [ORM].[PatientDetails]
+				WHERE Riskcategory = 2
+				UNION
+		SELECT 'Low - Opioid Rx' AS RowLabel, 1 AS RowValue
+				FROM [ORM].[PatientDetails]
+				WHERE Riskcategory = 1
+				UNION
+		SELECT 'High - Recently Discontinued' AS RowLabel, 8 AS RowValue
+				FROM [ORM].[PatientDetails]
+				WHERE Riskcategory = 8
+				UNION
+		SELECT 'Medium - Recently Discontinued' AS RowLabel, 7 AS RowValue
+				FROM [ORM].[PatientDetails]
+				WHERE Riskcategory = 7
+				UNION
+		SELECT 'Low - Recently Discontinued' AS RowLabel, 6 AS RowValue
+				FROM [ORM].[PatientDetails]
+				WHERE Riskcategory = 6
+				UNION
+		SELECT 'Overdose In The Past Year (Elevated Risk)' AS RowLabel, 11 AS RowValue
+				FROM [ORM].[PatientDetails]
+				WHERE Riskcategory = 11
+				UNION
+		SELECT 'Additional Possible Community Care Overdose In The Past Year' AS RowLabel, 12 AS RowValue
+			FROM [ORM].[PatientDetails]
+			WHERE Riskcategory = 12
+		ORDER BY RowLabel
+  END
+
+   ELSE IF @Dataset = 4 -- Measure 
+	BEGIN
+		SELECT 
+	      MeasureNameClean as RowLabel
+		  ,MeasureID as RowValue
+		  ,1 as RowOrder
+          FROM [ORM].[MeasureDetails] WITH (NOLOCK)
+         
+  END 
+
+  ELSE IF @Dataset = 5 -- Cohort 
+	BEGIN
+			SELECT 'All STORM Cohort' AS RowLabel, 3 AS RowValue
+			      FROM [ORM].[PatientDetails]
+				  UNION 
+			SELECT 'OUD Dx Patients' AS RowLabel, 1 AS RowValue
+			      FROM [ORM].[PatientDetails]
+				  WHERE OUD =1
+				  UNION
+            SELECT 'Opioid Rx Patients' AS RowLabel, 2 AS RowValue
+			      FROM [ORM].[PatientDetails]
+				  WHERE OpioidForPain_Rx = 1
+				  UNION
+            SELECT 'SUD Tx Patients' AS RowLabel, 4 AS RowValue
+			      FROM [ORM].[PatientDetails]
+				  WHERE SUDdx_poss=1
+				   UNION
+            SELECT 'Community Care Patients' AS RowLabel, 5 AS RowValue
+			      FROM [ORM].[PatientDetails]
+				  WHERE ReceivingCommunityCare=1 
+				  UNION
+            SELECT 'MAT Recently Discontinued' AS RowLabel, 6 AS RowValue
+			      FROM [ORM].[PatientDetails]
+				  WHERE ActiveMOUD_Patient = 0
+                  UNION
+            SELECT 'OD In The Past Year' AS RowLabel, 7 AS RowValue
+			      FROM [ORM].[PatientDetails]
+				  WHERE ODPastYear=1
+                  UNION
+            SELECT 'Long Term Opioid Therapy' AS RowLabel, 8 AS RowValue
+			      FROM [ORM].[PatientDetails]
+				  WHERE ChronicOpioid=1
+				  ORDER BY RowLabel
+
+--Continue below if necessary
+
+  END 
+	
+
+END

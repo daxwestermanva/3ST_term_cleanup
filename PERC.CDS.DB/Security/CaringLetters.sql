@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [CaringLetters]
+    AUTHORIZATION [uOMHSP_PERC];
+

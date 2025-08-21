@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Library]
+    AUTHORIZATION [uOMHSP_PERC];
+

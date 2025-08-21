@@ -1,0 +1,11 @@
+﻿CREATE SCHEMA [COMPACT]
+    AUTHORIZATION [uOMHSP_PERC];
+
+
+
+
+
+
+
+
+

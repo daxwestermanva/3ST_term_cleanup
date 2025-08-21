@@ -1,0 +1,5 @@
+﻿CREATE SCHEMA [LCustomer]
+    AUTHORIZATION [uOMHSP_PERC];
+
+
+

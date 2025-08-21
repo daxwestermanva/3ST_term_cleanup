@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Config]
+    AUTHORIZATION [uOMHSP_PERC];
+
