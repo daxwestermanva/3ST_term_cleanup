@@ -53,4 +53,6 @@ Questions:
 
 - [ ] What has been done?  Which areas?  Retrospective or prospective?
 - [ ] What are the priorities for the terms?
+- [ ] This approach requires an audit table; is it appropriate to place in same location as HDAP_NLP_OMHSP?  Or, should it go in OMHSP_PERC_NLP?
+
 
