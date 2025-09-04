@@ -1,0 +1,12 @@
+use CDWWork;
+go
+
+DECLARE @cols NVARCHAR(MAX);
+
+SELECT @cols = STRING_AGG(QUOTENAME(COLUMN_NAME), ', ')
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_SCHEMA = 'Dim'
+  AND TABLE_NAME = 'TIUStandardTitle'
+  AND TABLE_CATALOG = 'CDWWork';
+
+PRINT 'SELECT ' + @cols + ' FROM [CDWWork].Dim.TIUDocumentDefinition;';

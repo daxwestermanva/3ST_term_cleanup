@@ -1,0 +1,13 @@
+SELECT  [TIUStandardTitleSID]
+        , [TIUStandardTitleIEN]
+        , [Sta3n]
+        , [TIUStandardTitle]
+        , [TIUSubjectMatterDomainSID]
+        , [TIURoleSID]
+        , [TIUSettingSID]
+        , [TIUServiceSID]
+        , [TIUDocumentTypeSID]
+        , [MasterEntryForVUIDFlag]
+        , [VUID]
+FROM [CDWWork].[Dim].[TIUStandardTitle] with (nolock);
+
