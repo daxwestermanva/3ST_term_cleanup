@@ -1,3 +1,6 @@
+/*****************************************************************************
+*****************************************************************************/
+
 SELECT Instance_ID, Class, SUBCLASS, Preferred_Label, SUBCLASS_GROUPING
 FROM Config.NLP_3ST_subclass_labels WITH (NOLOCK)
 WHERE Polarity='indicates_presence'

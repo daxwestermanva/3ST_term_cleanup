@@ -1,0 +1,22 @@
+{
+  "name": "3st_term_cleanup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daxwestermanva/3ST_term_cleanup.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daxwestermanva/3ST_term_cleanup/issues"
+  },
+  "homepage": "https://github.com/daxwestermanva/3ST_term_cleanup#readme",
+  "dependencies": {
+    "prettier-plugin-sql": "^0.19.2"
+  }
+}
